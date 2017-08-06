@@ -1,0 +1,18 @@
+var result = "<%= escape_javascript(@result) %>";
+
+var verified = false;
+
+if (result == 'pass') {
+  verified = true
+  alert('해당 아이디를 사용할 수 있습니다.')
+}
+else {
+  alert('해당 아이디는 이미 사용 중 입니다.')
+}
+
+$('.ky_input-id').submit(function () {
+
+  if (verified == false) {
+     return false;
+  }
+})

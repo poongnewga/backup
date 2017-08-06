@@ -1,0 +1,6 @@
+안녕하세요!
+점심 시간 미팅 서비스 런치팅입니다.
+<%= @user.nickname %>님, 런치팅에 가입해 주셔서 감사합니다.
+
+아래 링크를 클릭하시면 가입이 완료됩니다!
+<%= confirm_email_user_url(@user.confirm_token) %>

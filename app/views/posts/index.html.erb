@@ -1,0 +1,53 @@
+<section class="dk_ccontainer">
+  <h2 class="dk_title">커뮤니티</h2>
+  <div class="dk_between"></div>
+  <div class="dk_search">
+    <div class="dk_searchbox">
+      <input type="text" class="dk_searchboxinput" placeholder="검색어를 입력하세요." name="textbox"/>
+      <%= image_tag("dk_search.png", class: "dk_searchicon") %>
+    </div>
+  </div>
+  <% @posts.each do |post| %>
+    <a href="/posts/<%=post.id%>">
+      <article class="dk_postbox">
+        <div class="dk_top">
+          <h3 class="dk_posttitle"><%= post.title %></h3>
+          <div class="dk_hot">Hot</div>
+          <div class="dk_postdate"><%= post.created_at.to_s.split("-")[0] + "." + post.created_at.to_s.split("-")[1] + "." + post.created_at.to_s.split(" ")[1].split(":").first%></div>
+        </div>
+        <div class="dk_content"><%= post.content %></div>
+        <div class="dk_bottom">
+          <div class="dk_jum"></div>
+          <div class="dk_nickname"><%= post.user.nickname %></div>
+          <div class="dk_commentnum"><%= post.comments.length %></div>
+          <%= image_tag("dk_comment.png", class: "dk_comment") %>
+          <div class="dk_likenum"><%= post.likes.length %></div>
+          <% if current_user.is_like?(post) %>
+              <%= link_to image_tag("dk_likeon.png", alt: "좋아요 취소", class: "dk_likeon"), post_like_path(post), method: "post" %>
+          <% else %>
+              <%= link_to image_tag("dk_likeoff.png", alt: "좋아요", class: "dk_likeon"), post_like_path(post), method: "post" %>
+          <% end %>
+        </div>
+      </article>
+    </a>
+  <% end %>
+  <div class="dk_foot">
+    <a href="/posts/new" class="dk_writelink">
+      <div class="dk_write">
+        <div class="dk_writetext">글쓰기</div>
+        <%= image_tag("dk_writeicon.png", class: "dk_writeicon") %>
+      </div>
+    </a>
+    <div class="dk_paginate"><%= will_paginate @posts %></div>
+    <div class="dk_next">
+      <div class="dk_nexttext">다음</div>
+      <%= image_tag("dk_nextbar.png", class: "dk_nextbar") %>
+    </div>
+  </div>
+</section>
+
+<script>
+$( ".dk_next" ).click(function() {
+  $('.next_page')[0].click();
+});
+</script>

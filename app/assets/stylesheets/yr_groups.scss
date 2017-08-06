@@ -1,0 +1,443 @@
+// Place all the styles related to the groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.yr_tip {
+  width: 573px;
+  margin-top: 157px;
+  margin-bottom: 31px;
+  min-height: 918px - 205px;
+  border-radius: 11px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+}
+
+.yr_tip2 {
+
+  display: inline-block;
+}
+
+.yr_div1 {
+    height: 90px;
+}
+
+#yr_div1_label {
+    width: 94px;
+  height: 21px;
+//   font-family: AppleSDGothicNeo;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+  color: #fc5a5a;
+  font-weight: bold;
+  padding-top: 44px;
+  margin-left: 79px;
+ 
+}
+
+.yr_div2 {
+    height: 34.2px + 17.1px +18.8px - 9.5px;
+    width: 573px;
+}
+
+#yr_div2_label {
+    width: 63.4px;
+    margin-left: 23px;
+    margin-top: 24px;
+    float: left;
+  height: 20px;
+//   font-family: NotoSansMonoCJKkr;
+  font-size: 14px;
+  text-align: left;
+  color: #8b8b8b;
+}
+
+.yr_div2_tag {
+    float: left;
+    margin-left: 37.6px;
+    margin-top: 17px;
+    padding-left: 15px;
+    color: #979797;
+  width: 212.8px;
+  height: 34.2px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #979797;
+  cursor: pointer;
+}
+
+.yr_div3, .yr_div4, .yr_div5 {
+    height: 34.2px+ 9.5px + 4.4px + 18px;
+}
+
+.yr_div3_label, .yr_div4_label, .yr_div5_label {
+      height: 20px;
+//   font-family: NotoSansMonoCJKkr;
+  font-size: 14px;
+  text-align: left;
+  color: #8b8b8b;
+  margin-top: 16.5px;
+  margin-left: 23px;
+  float: left;
+  width: 76px;
+}
+
+.yr_div3_tag, .yr_div4_tag, .yr_div5_tag {
+     width: 212.8px;
+  height: 34.2px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #979797;
+  margin-left: 27px;
+  padding-left: 15px;
+  color: #979797;
+  margin-top: 9.5px;
+}
+.yr_div2_edit {
+     height: 34.2px+ 9.5px + 4.4px + 18px;
+}
+
+.yr_div_people {
+     width: 446px;
+  min-height: 34.2px + 17.1px +18.8px;
+  border-radius: 4px;
+  border: solid 1px #dddddd;
+  margin-left: 64px;
+}
+
+#yr_edit_btn1, #yr_auth_btn1, #yr_newauth1, #yr_edit_btn2, #yr_auth_btn2, #yr_newauth2, #yr_edit_btn3, #yr_auth_btn3, #yr_newauth3{
+    margin-left: 12.2px;
+    width: 76px;
+  height: 34.2px;
+  border-radius: 4px;
+  border: solid 1px #fc5a5a;
+//   font-family: NotoSansMonoCJKkr;
+  font-size: 14px;
+  text-align: center;
+  background-color: white;
+  color: #fc5a5a;
+    cursor: pointer;
+}
+
+.yr_auth_btn1_hide, .yr_auth_btn2_hide, .yr_auth_btn3_hide {
+    display: none;
+}
+
+.yr_hide {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.yr_btn1, .yr_btn2, .yr_btn3 {
+    margin-left: 12.2px;
+    width: 76px;
+  height: 34.2px;
+  border-radius: 4px;
+  border: solid 1px #fc5a5a;
+//   font-family: NotoSansMonoCJKkr;
+  font-size: 14px;
+  text-align: center;
+  background-color: white;
+  color: #fc5a5a;
+  margin-top: 9.5px;
+  cursor: pointer;
+}
+
+.yr_btn1:hover, .yr_btn2:hover, .yr_btn3:hover, #yr_edit_btn1:hover, #yr_auth_btn1:hover, #yr_newauth1:hover, #yr_edit_btn2:hover, #yr_auth_btn2:hover, #yr_newauth2:hover, #yr_edit_btn3:hover, #yr_auth_btn3:hover, #yr_newauth3:hover {
+	    background-color: #fc5a5a;
+			color: #fff;
+	}
+
+#yr_result1, #yr_result2, #yr_result3, #yr_result1_edit, #yr_result2_edit, #yr_result3_edit {
+  font-size: 12px;
+  text-align: left;
+  color: #fc5a5a;
+  margin-left: 128px;
+  margin-top: 4.8px;
+}
+
+.yr_div6 {
+    height: 34px+ 23.9px;
+}
+
+.yr_div6_label {
+    margin-left: 88px;
+    margin-right: 39.6px - 12px;
+    margin-top: 30.9px;
+    width: 63.4px;
+    float: left;
+  height: 20px;
+//   font-family: NotoSansMonoCJKkr;
+  font-size: 14px;
+  text-align: left;
+  color: #8b8b8b;
+}
+
+.yr_daybutton{
+        padding: auto;
+        width: 40px;
+        height: 34.2px;
+        border-radius: 4px;
+        background-color: #ffffff;
+        border: solid 1px #fc5a5a;
+        // font-family: NotoSansMonoCJKkr;
+        font-size: 14px;
+        text-align: center;
+        color: #fc5a5a;
+        float: left;
+        margin-left: 12px;
+        margin-top: 23.9px;
+      }
+
+      .yr_daybutton.yr_active{
+       background-color: #fc5a5a;
+       color: white;
+      }
+      
+      .yr_active{
+       background-color: #fc5a5a;
+       color: white;
+      }
+      
+.yr_thisday {
+    padding: auto;
+    margin: 0 auto;
+    line-height: 34.2px;
+    cursor: pointer;
+}
+
+.yr_div7 {
+    height: 5.8px + 20px + 15px;
+
+}
+  
+.yr_div7_tue {
+  width: 31px;
+//   font-family: AvenirNext;
+  font-size: 12px;
+  line-height: 1.67;
+  text-align: center;
+  color: #9f9f9f;
+  float: left;
+  margin-top: 5.8px;
+  margin-left: 22px;
+  height: 20px;
+}
+
+.yr_div7_mon {
+  margin-top: 5.8px;
+  margin-left: 193px;
+  height: 20px;
+  width: 31px;
+//   font-family: AvenirNext;
+  font-size: 12px;
+  line-height: 1.67;
+  text-align: center;
+  color: #9f9f9f;
+  float: left;
+  width: 31px;
+}
+
+.yr_div8 {
+    height: 34.2px ;
+}
+
+.yr_div8_label {
+    float: left;
+     width: 63.4px;
+  height: 20px;
+//   font-family: NotoSansMonoCJKkr;
+  font-size: 14px;
+  text-align: left;
+  color: #8b8b8b;
+  margin-left: 88px;
+  margin-top: 5px;
+}
+
+.timepicker1, .timepicker2 {
+  width: 91.5px;
+  height: 34.2px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #979797;
+  float: left;
+  padding-left: 10px;
+  color: #979797;
+}
+
+.timepicker1 {
+    margin-left: 39.6px;
+}
+
+.yr_div8_wave {
+    float: left;
+    margin-left: 22.5px;
+    width: 16px;
+    height: 26px;
+    // font-family: AvenirNext;
+    font-size: 24px;
+    line-height: 1.08;
+    text-align: left;
+    color: #979797;
+    margin-right: 23px;
+}
+
+.ui-corner-all {
+//   font-family: AvenirNext;
+  font-size: 12.5px;
+  text-align: left;
+}
+
+.yr_div9 {
+    height: 46.8px;
+}
+
+#lunchtime_save {
+    background-color: white;
+}
+
+.yr_div9_checkbox {
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  background-color: #ffffff;
+//   box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  border: solid 1px #979797;
+  margin-top: 8.8px;
+  margin-left: 191px;
+  float: left;
+}
+
+.yr_div9_label {
+     width: 228px;
+  height: 20px;
+//   font-family: NotoSansMonoCJKkr;
+  font-size: 12px;
+  line-height: 1.67;
+  text-align: left;
+  color: #8c8c8c;
+  margin-left: 6px;
+  margin-top: 5.8px;
+  float: left;
+}
+
+.yr_div10 {
+    height: 254px + 2.2px;
+}
+
+.yr_div10_label {
+    // width: 63.4px;
+    float: left;
+  height: 20px;
+//   font-family: NotoSansMonoCJKkr;
+  font-size: 14px;
+  text-align: left;
+  color: #8b8b8b;
+  margin-top: 5px;
+  margin-left: 88px;
+  margin-right: 26px;
+}
+
+.yr_submit {
+     width: 190px;
+  height: 36.5px;
+  border-radius: 4px;
+  background-color: #fc5a5a;
+  border: solid 1px #fc5a5a;
+  margin-left: 190px;
+  margin-bottom: 27.5px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.yr_submit:hover {
+  background-color: #EA5454;
+}
+
+  #map {
+      float: left;
+        height: 254px;
+        width: 308px;
+      }
+
+.gm-style-mtc, .gm-svpc, .gm-style-cc {
+    display: none;
+}
+
+#pac-input {
+    width: 270px;
+    margin-left: 0;
+    // font-family: NotoSansMonoCJKkr;
+  font-size: 11px;
+  text-align: left;
+  color: #979797;
+}
+
+      .controls {
+        background-color: #fff;
+        border-radius: 2px;
+        border: 1px solid transparent;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+        // font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        height: 29px;
+        margin-left: 17px;
+        margin-top: 10px;
+        outline: none;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      .controls:focus {
+        border-color: #4d90fe;
+      }
+      .title {
+        font-weight: bold;
+      }
+      #infowindow-content {
+        display: none;
+      }
+      #map #infowindow-content {
+        display: inline;
+      }
+
+
+      .auth_1, .auth_2, .auth_3 {
+       display: none;
+      }
+      
+      
+
+
+      .yr_active{
+        background-color: #fc5a5a;
+        color: white;
+      }
+      
+      .yr_daycheckbox{
+        display: none;
+      }
+      
+      .yr_daybutton{
+        padding: 0 0;
+        width: 40px;
+        height: 34.2px;
+        border-radius: 4px;
+        background-color: #ffffff;
+        border: solid 1px #fc5a5a;
+        // font-family: NotoSansMonoCJKkr;
+        font-size: 14px;
+        text-align: center;
+        color: #fc5a5a;
+      }
+
+#infowindow-content, .gm-style .gm-style-iw {
+    font-size: 11px;
+
+}

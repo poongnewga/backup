@@ -1,0 +1,92 @@
+.dk_adminwrap {
+  margin-top: 164px;
+	width: 715px;
+	height: 856px;
+	border-radius: 11px;
+	background-color: #ffffff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+  .dk_adtitle {
+    padding-top: 44px;
+    margin-left: 79px;
+  	min-width: 94px;
+  	height: 21px;
+  	font-size: 18px;
+  	font-weight: 600;
+  	color: #fc5a5a;
+  }
+  .dk_admininnerwrap {
+    color: #494949;
+    margin-left: 80px;
+  }
+  .dk_midline {
+    margin-top: 50px;
+  }
+  .dk_usertable {
+    margin-top: 20px;
+    text-align: center;
+    width: 70%;
+    margin-left: 30px;
+    border:1px #4a4a4a solid;
+    border-collapse: collapse;
+    th, td {
+    border: 1px solid #4a4a4a;
+    padding: 10px;
+  }
+  }
+  .dk_userlist {
+    h2 {
+      margin-left: 30px;
+    }
+  }
+  .dk_confirmmail {
+    .dk_conform {
+      margin-top: 20px;
+    }
+  }
+  .dk_write {
+    margin-left: 0;
+    width: 84px;
+    height: 36.7px;
+    border-radius: 4px;
+    background-color: #fc5a5a;
+    border: solid 1px #fc5a5a;
+    .dk_writetext {
+      margin-top: 3px;
+      min-width: 50px;
+      height: 21px;
+      font-size: 18px;
+      color: #ffffff;
+    }
+    .dk_writetext2 {
+      margin-left: 8px;
+      margin-top: 3px;
+      min-width: 50px;
+      height: 21px;
+      font-size: 18px;
+      color: #ffffff;
+    }
+    .dk_writeicon {
+      margin-right: 6px;
+      margin-top: 8px;
+      float: right;
+      width: 14px;
+      height: 19px;
+      object-fit: contain;
+    }
+  }
+  .dk_button {
+    border: 0;
+    cursor: pointer;
+    cursor: hand;
+    background-color: #fff;
+    margin-top: 24px;
+    margin-right: 60px;
+  }
+  .dk_midpath {
+    margin-left: 0;
+    margin-top: 18px;
+  	width: 550.9px;
+  	height: 1px;
+  	border: solid 1px #cdcdcd;
+  }
+}

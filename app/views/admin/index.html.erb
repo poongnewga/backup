@@ -1,0 +1,50 @@
+<div class="dk_adminwrap">
+  <div class="dk_adtitle">Admin페이지</div>
+  <div class="dk_midline"></div>
+  <div class="dk_admininnerwrap">
+    <div class="dk_userslist">
+      <h2>인증해아할 유저 목록</h2>
+      <table class="dk_usertable">
+        <tr>
+          <th>User id</th>
+          <th>Card_url</th>
+        </tr>
+        <% @user.each do |u| %>
+          <tr>
+            <td><%= u.id %></td>
+            <td><a href="<%= u.card.url %>">명함보기</a></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <br>
+    
+    <div class="dk_confirmmail">
+      <h2>명함 확인 후 메일전송</h2>
+      <%= form_tag admin_path, class: "dk_conform" do %>
+        가입한 사람 id :
+        <input type="text" name="id"><br>
+        명함 속 이메일 :
+        <input type="text" name="email"><br>
+        명함 속 회사 :
+        <input type="text" name="company"><br>
+        <button type="submit" class="dk_button">
+            <div class="dk_write">
+              <div class="dk_writetext">메일전송</div>
+            </div>
+        </button>
+      <% end %>
+    </div>
+    <br>
+    <div class="dk_midpath"></div>
+    <br>
+    <h2>현재 있는 그룹들 매칭시키기</h2>
+    <a href="/admin/matching">
+      <div class="dk_button">
+          <div class="dk_write">
+            <div class="dk_writetext2">매칭하기</div>
+          </div>
+      </div>
+    </a>
+  </div>
+</div>

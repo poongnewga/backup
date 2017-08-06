@@ -1,0 +1,28 @@
+<nav class="dk_nav2">
+  <div class="dk_wrapper2">
+    <a href="/" class="logo_a2"><%= image_tag("dk_navlogo.png", class: "dk_navlogo2") %></a>
+    <% if !current_page?('https://lunchlunch-whehdrms.c9users.io/') || !current_page?('https://lunchlunch-whehdrms.c9users.io/home/home') %>
+      <div class="dk_menu2">
+        <div><a href="/">홈</a></div>
+        <div><a href="/groups/new">신청하기</a></div>
+        <div><a href="/users">마이페이지</a></div>
+        <div><a href="/tips">팁</a></div>
+        <div><a href="/posts">커뮤니티</a></div>
+        <div><a href="/setting/index">설정</a></div>
+      </div>
+    <% end %>
+    <% if !current_user.nil? %>
+      <div class="dk_login2">
+        <div><%= current_user.nickname %><br>로그인 상태입니다.</div>
+          <a href="/users"><%= image_tag("dk_msgbox.png", class: "dk_msgbox2") %></a>
+        <div class="dk_logbox2"><%= link_to '로그아웃', session_path(current_user), method: 'delete' %></div>
+      </div>
+    <% else %>
+      <div class="dk_login2">
+        <div class="dk_logoffmsg2">로그인 해주세요.</div>
+        <div class="dk_loginbox2"><a href="/sessions/new">로그인</a></div>
+        <div class="dk_logbox2"><a href="/users/new">회원가입</a></div>
+      </div>
+    <% end %>
+  </div>
+</nav>

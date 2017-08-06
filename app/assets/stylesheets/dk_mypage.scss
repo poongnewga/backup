@@ -1,0 +1,256 @@
+.dk_profile {
+    display: flex;
+	align-items: flex-start;
+	margin-top: 160px;
+    width: 715px;
+    height: 86px;
+    border-radius: 11px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+    .dk_nim {
+			margin-top: 37px;
+			margin-left: 67px;
+			margin-right: 0px;
+    	min-width: 62px;
+    	height: 20px;
+    	font-family: AppleSDGothicNeo;
+    	font-size: 18px;
+    	line-height: 1.11;
+    	color: #4a4a4a;
+      height: 20px;
+      font-family: AppleSDGothicNeo;
+      font-size: 18px;
+      line-height: 1.11;
+      color: #4a4a4a;
+    }
+    .dk_profilefix {
+			margin-left: 20px;
+			margin-top: 27px;
+      width: 104px;
+      height: 35px;
+      border-radius: 12px;
+      border: solid 1px #565656;
+      text-align: center;
+      line-height: 35px;
+      font-size: 14px;
+      color: #565656;
+    }
+}
+
+// .dk_mypagebox {
+// 	width: 715px;
+// 	height: 856px;
+// 	border-radius: 11px;
+// 	background-color: #ffffff;
+// 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+// 	.dk_tabs {
+// 		margin-top: 47px;
+// 	  width: 715px;
+// 	}
+// }
+
+/* Style the tab */
+.dk_mytab {
+	width: 715px;
+}
+.dk_tab {
+	width: 430px;
+	margin-left: 40px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+  	overflow: hidden;
+
+	button {
+			border-radius: 4px;
+			background-color: #f7f7f7;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			width: 133px;
+			height: 49px;
+			border-radius: 11px;
+			border-bottom-right-radius: 0em;
+			border-bottom-left-radius: 0em;
+			font-size: 16px;
+			font-weight: 500;
+	    border: none;
+	    outline: none;
+	    cursor: pointer;
+	    padding: 14px 16px;
+	    transition: 0.3s;
+			color: #565656;
+	}
+
+	button:hover {
+	    color: #fc5a5a;
+			background-color: #fff;
+	}
+
+	button.active {
+	    background-color: #fff;
+			color: #fc5a5a;
+	}
+
+}
+
+.dk_tabcontent {
+	width: 715px;
+	min-height: 694px;
+	margin-bottom: 162px;
+	border-radius: 11px;
+	background-color: #ffffff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+	border-top: none;
+	.dk_nonclicktab {
+			display: none;
+			padding: 6px 12px;
+			border-top: none;
+			color: #565656;
+	}
+}
+
+.dk_waitinner {
+	margin-top: 62px;
+	width: 590px;
+	.dk_namebox {
+		margin-left: 30px;
+		padding-bottom: 20px;
+		display: flex;
+		.dk_namechild {
+		width: 115.5px;
+		height: 17px;
+		font-size: 14px;
+		font-weight: 500;
+		color: #565656;
+		}
+		.dk_namechildloc {
+		width: 192.5px;
+		height: 17px;
+		font-size: 14px;
+		font-weight: 500;
+		color: #565656;
+		}
+		.dk_namechildloc2 {
+		width: 240px;
+		height: 17px;
+		font-size: 14px;
+		font-weight: 500;
+		color: #565656;
+		}
+		.dk_namechildbiz {
+		width: 192.5px;
+		height: 17px;
+		font-size: 14px;
+		font-weight: 500;
+		color: #565656;
+		}
+	}
+
+	.dk_meetinglist {
+		height: 58px;
+		margin-left: 30px;
+		padding-bottom: 20px;
+		display: flex;
+		.dk_meetingchild {
+			margin-top: 21px;
+			width: 103px;
+			height: 26px;
+			font-size: 14px;
+			line-height: 1.86;
+			color: #4a4a4a;
+		}
+		.dk_meetingchildloc {
+			margin-top: 21px;
+			width: 180px;
+			height: 26px;
+			font-size: 14px;
+			line-height: 1.86;
+			color: #4a4a4a;
+		}
+		.dk_meetingchildloc2 {
+			margin-top: 21px;
+			width: 230px;
+			height: 26px;
+			font-size: 14px;
+			line-height: 1.86;
+			color: #4a4a4a;
+		}
+		.dk_meetingchildbiz {
+			margin-top: 21px;
+			width: 180px;
+			height: 26px;
+			font-size: 14px;
+			line-height: 1.86;
+			color: #4a4a4a;
+		}
+		.dk_meetingchildUD {
+			width: 103px;
+			height: 26px;
+			font-size: 14px;
+			line-height: 1.86;
+			color: #4a4a4a;
+		}
+		.dk_update {
+			margin-top: 14px;
+			width: 48.6px;
+			height: 32px;
+			border-radius: 12px;
+			background-color: #ffffff;
+			border: solid 1px #fc5a5a;
+			font-size: 14px;
+			color: #fc5a5a;
+			text-align: center;
+			float: left;
+		}
+		.dk_delete {
+			margin-top: 14px;
+			width: 48.6px;
+			height: 32px;
+			border-radius: 12px;
+			background-color: #ffffff;
+			border: solid 1px #979797;
+			font-size: 14px;
+			color: #979797;
+			text-align: center;
+			float: right;
+		}
+		.dk_chat {
+			margin-top: 13px;
+			width: 53.1px;
+			height: 35px;
+			border-radius: 12px;
+			background-color: #ffffff;
+			border: solid 1px #fc5a5a;
+			font-size: 14px;
+			color: #fc5a5a;
+			text-align: center;
+			a {
+				display: inline-block;
+	    	margin-top: 3px;
+			}
+		}
+		.dk_deletepast {
+			margin-top: 13px;
+			width: 65.1px;
+			height: 35px;
+			border-radius: 12px;
+			background-color: #ffffff;
+			border: solid 1px #979797;
+			font-size: 14px;
+			color: #979797;
+			text-align: center;
+			a {
+				display: inline-block;
+	    	margin-top: 3px;
+			}
+		}
+	}
+	.dk_path {
+		width: 590px;
+		height: 2px;
+		border-bottom: solid 1px #979797;
+	}
+
+}

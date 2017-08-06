@@ -1,0 +1,31 @@
+<div class="dk_writepostwrap">
+  <h2 class="dk_postbigtitle">글 수정하기 <span class="dk_bigtitle2">< 커뮤니티</span></h2>
+  <div class="dk_titletitle">제목</div>
+  <%= form_tag posts_path do %>
+    <div class="dk_titletextbox">
+      <input class="dk_titleinputbox" name="title" value="<%= @post.title %>">
+    </div>
+    <div class="dk_midpath"></div>
+    <div class="dk_contenttitle">내용</div>
+    <div class="dk_contentbox">
+      <textarea name="content" class="dk_textarea"><%= @post.content %></textarea>
+    </div>
+    <div class="dk_midpath"></div>
+    <div class="dk_footnew">
+      <a href="/posts">
+        <div class="dk_postlistlinknew">
+          <div class="dk_postlinktext">
+            글 목록
+          </div>
+          <%= image_tag("dk_postlist.png", class: "dk_postlisticon") %>
+        </div>
+      </a>
+      <button type="submit" class="dk_button">
+          <div class="dk_write">
+            <div class="dk_writetext">수정</div>
+            <%= image_tag("dk_writeicon.png", class: "dk_writeicon") %>
+          </div>
+      </button>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,40 @@
+<div class = "ky_login-wrapper">
+	<div class = "ky_login-pic">
+		<div class = "ky_picture">
+			<%= image_tag("ky_phone.png", class: "ky_picture") %>
+		</div>
+		<div class="ky_app_download">
+			<%= image_tag("ky_iphone.png", class: "ky_app_down") %>
+			<%= image_tag("ky_play.png", class: "ky_app_down") %>
+		</div>
+	</div>
+
+	<div class = "ky_login-sub">
+		<div class = "ky_login-input">
+			<div class = "ky_logo">
+				<%= image_tag("dk_navlogo.png", class: "ky_logo") %>
+			</div>
+
+			<%= form_tag sessions_path do %>
+			  <input class="ky_nickname" type="string" name="nickname" placeholder="닉네임">
+			  <input class="ky_password" type="password" name="password" placeholder="비밀번호">
+			  <input class="ky_submit" type="submit" value="로그인">
+			  
+			<% end %>
+
+			<div class = "ky_sign-up">
+				<%= link_to '회원 가입', new_user_path, :class => "ky_sign-up-font"  %>
+			</div>
+
+			<div class = "ky_find">
+				<%= link_to "닉네임 찾기", find_id_index_path, :class => "ky_find-font" %>
+				<a style="	font-size: 13px; color: #a2a2a2;">|</a>
+				<%= link_to "비밀번호 찾기", find_password_index_path, :class => "ky_find-font"%>
+				
+			</div>
+
+
+		</div>
+	</div>
+</div>
+

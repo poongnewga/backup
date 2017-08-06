@@ -1,0 +1,95 @@
+<div class="hj-wrapper">
+  <div class="hj-chatCard">
+    <div id="user" style="display: none;"><%= current_user.nickname -%></div>
+    <div id="room" style="display: none;"><%=@room-%></div>
+    <div id="day" style="display: none;"><%=@day-%></div>
+    <div class="hj-chatContainer">
+      <div class="hj-chatRoomName">
+        채팅방 이름
+      </div>
+
+      <div class="hj-chatListBox">
+        <div class="hj-chatList">
+
+        </div>
+      </div>
+
+      <div class="hj-textBox">
+        <form class="chatForm">
+          <input type="text" name="" value="" id="hj-input" placeholder="메세지를 입력해주세요...">
+          <button type="submit" id="hj-submitBtn" name="button">전송</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var user = $('#user').text();
+  var room = $('#room').text();
+  var day = $('#day').text();
+  var messages = [];
+
+  console.log('유저 : ', $('#user').text());
+  console.log('방 : ', $('#room').text());
+  console.log('요일 : ', $('#day').text());
+
+  // 소켓을 생성한다. 자동으로 연결됨
+  var socket = io('http://chat.heeham.com', {jsonp : false});
+
+  socket.on('connect', function () {
+    socket.emit('joinRoom', user, room, day);
+  });
+
+  socket.on('initial', function (day, msgs) {
+    // 배열에 저장
+    messages = messages.concat(msgs);
+    // 화면에 출력
+
+    console.log('새로운 메세지들 수신',msgs);
+    for( var i =0; i < msgs.length; i++ ) {
+      if (msgs[i].from.split("|")[0] == user) {
+        // 내가 쓴 메세지인 경우
+        var myChat = $("<div class='hj-singleMyChatContainer'>").append($("<div class='hj-chatHeader'>"));
+        myChat[0].firstChild.append($('<div class="hj-chatID">').text(msgs[i].from.split("|")[0])[0]);
+        myChat[0].firstChild.append($('<div class="hj-chatTime">').text(msgs[i].createdAt.split(' ').slice(3,5).join(' '))[0]);
+        myChat[0].firstChild.append($('<div style="clear: both;">')[0]);
+        myChat[0].append($('<div class="hj-chatBody">')[0]);
+        myChat[0].lastChild.append($('<div class="hj-chatMsg">').text(msgs[i].body)[0]);
+        myChat[0].lastChild.append($('<div style="clear: both;">')[0]);
+        myChat[0].append($('<div style="clear: both;">')[0]);
+        $('.hj-chatList').append(myChat)
+      } else {
+        // 남이 쓴 메세지인 경우
+        var myChat = $("<div class='hj-singleChatContainer'>").append($("<div class='hj-chatHeader'>"));
+        myChat[0].firstChild.append($('<div class="hj-chatID">').text(msgs[i].from.split("|")[0])[0]);
+        myChat[0].firstChild.append($('<div class="hj-chatTime">').text(msgs[i].createdAt.split(' ').slice(3,5).join(' '))[0]);
+        myChat[0].firstChild.append($('<div style="clear: both;">')[0]);
+        myChat[0].append($('<div class="hj-chatBody">')[0]);
+        myChat[0].lastChild.append($('<div class="hj-chatMsg">').text(msgs[i].body)[0]);
+        myChat[0].lastChild.append($('<div style="clear: both;">')[0]);
+        myChat[0].append($('<div style="clear: both;">')[0]);
+        $('.hj-chatList').append(myChat)
+      }
+    }
+    // 스크롤을 최하단으로 이동
+    $('.hj-chatList').animate({scrollTop: $('.hj-chatList')[0].scrollHeight}, 250);
+
+  });
+
+  $('.chatForm').submit(function(){
+    var message = $('#hj-input').val();
+
+    var msg = {
+      from: user,
+      to: room,
+      body: message,
+      createdAt: moment().format('ll A hh:mm')
+    }
+
+    socket.emit('newMsg', msg, messages.length);
+
+    $('#hj-input').val('');
+    return false;
+  });
+</script>

@@ -1,0 +1,60 @@
+<h1>Groups#show</h1>
+인원 수: <%= @show_group.users.length %>
+<br/>
+참여 가능 요일:
+<% d_hash = JSON.parse(@show_group.day) %>
+<% if d_hash["mon"] == "1" %>
+    <%= "월(" %>
+    <% time = (Time.now.at_beginning_of_week + 7.day).to_s.split("-") %>
+    <% next_mon = time[1] + "/" + time[2].split(" ")[0] %>
+    <%=next_mon+")" %>
+<% end %>
+<% if d_hash["tue"] == "1" %>
+    <%= "화(" %>
+    <% time = (Time.now.at_beginning_of_week + 8.day).to_s.split("-") %>
+    <% next_tue = time[1] + "/" + time[2].split(" ")[0] %>
+    <%= next_tue+")" %>
+<% end %>
+<% if d_hash["wed"] == "1" %>
+    <%= "수(" %>
+    <% time = (Time.now.at_beginning_of_week + 9.day).to_s.split("-") %>
+    <% next_wed = time[1] + "/" + time[2].split(" ")[0] %>
+    <%= next_wed+")" %>
+<% end %>
+<% if d_hash["thu"] == "1" %>
+    <%= "목(" %>
+    <% time = (Time.now.at_beginning_of_week + 10.day).to_s.split("-") %>
+    <% next_thu = time[1] + "/" + time[2].split(" ")[0] %>
+    <%= next_thu+")" %>
+<% end %>
+<% if d_hash["fri"] == "1" %>
+    <%= "금(" %>
+    <% time = (Time.now.at_beginning_of_week + 11.day).to_s.split("-") %>
+    <% next_fri = time[1] + "/" + time[2].split(" ")[0] %>
+    <%= next_fri+")" %>
+<% end %>
+<br/>
+점심시간:
+<%= JSON.parse(@show_group.lunchtime)["start"].split("")[0,2].join %>:<%= JSON.parse(@show_group.lunchtime)["start"].split("")[2,2].join %>
+~
+<%= JSON.parse(@show_group.lunchtime)["end"].split("")[0,2].join %>:<%= JSON.parse(@show_group.lunchtime)["end"].split("")[2,2].join %>
+<br/>
+근무지 위치:
+<%= JSON.parse(@show_group.location)["latitude"] %>
+<input id="lat_d" type="hidden" value="<%= JSON.parse(@show_group.location)["latitude"].to_f %>">
+<input id="lat_d" type="hidden" value="<%= JSON.parse(@show_group.location)["longitude"].to_f %>">
+
+<div id="map2"></div>
+<script>
+  function initMap() {
+    var uluru = {lat: parseFloat(document.getElementById('lat_d').value), lng: parseFloat(document.getElementById('lon_d').value)};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+</script>

@@ -1,0 +1,117 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ks_logo_a {
+  width: 79px;
+  height: 82px;
+}
+
+.ks_nav {
+  position: fixed;
+  top: 0;
+  z-index: 900;
+  width: 100%;
+  height: 108px;
+  margin: 0 auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0);
+
+  .ks_wrapper2 {
+      margin: 0 auto;
+      display: flex;
+      width: 915.9px;
+    }
+
+  .ks_navlogo {
+  	width: 79px;
+  	height: 82px;
+    margin-top: 14.7px;
+  }
+
+  .ks_menu {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  	font-weight: bold;
+  	color: #ffffff;
+    padding-top: 47px;
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: transparent solid 1px;
+      padding-bottom: 35px;
+    }
+    a:hover {
+        color: #fc5a5a;
+        border-bottom: #fc5a5a solid 6px;
+    }
+  }
+
+  .ks_login {
+    font-size: 14px;
+    color: #4a4a4a;
+    margin-right: 10px;
+    padding-top: 19px;
+    font-size: 14px;
+    color: #ffffff;
+
+    .ks_msgbox {
+      padding-top: 10px;
+      padding-left: 15px;
+      padding-right: 10px;
+      float: left;
+      height: 28px;
+      width: 50px;
+    }
+
+    .ks_logbox {
+      margin-top: 9px;
+    	width: 63.7px;
+    	height: 22.9px;
+    	border-radius: 4px;
+    	background-color: #ffffff;
+    	border: solid 1px #fc5a5a;
+    	font-size: 14px;
+    	font-weight: 500;
+    	color: #fc5a5a;
+      float: right;
+      text-align: center;
+       margin-left: 12.3px;
+    }
+    
+    .ks_logbox2 {
+      margin-top: 9px;
+    	width: 63.7px;
+    	height: 22.9px;
+    	border-radius: 4px;
+    	background-color: #fc5a5a;
+    	border: solid 1px #fc5a5a;
+    	font-size: 14px;
+    	font-weight: 500;
+    	color: #ffffff;
+      float: right;
+      text-align: center;
+       margin-left: 12.3px;
+    }
+
+    .ks_logoffmsg {
+      margin-right: 15px;
+      color: #ffffff;
+    }
+
+    .ks_loginbox {
+      margin-top: 9px;
+      width: 63.7px;
+    	height: 22.9px;
+    	border-radius: 4px;
+    	background-color: #fc5a5a;
+    	border: solid 1px #fc5a5a;
+    	font-size: 14px;
+    	font-weight: 500;
+    	color: #ffffff;
+      float: left;
+      text-align: center;
+    }
+  }
+}

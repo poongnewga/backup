@@ -1,0 +1,13 @@
+<h1>정보 수정</h1>
+<%= form_tag users_path do  %>
+	Nickname :
+	<input type="text" name="nickname"><br>
+	Password :
+	<input type="password" name="password"><br>
+	Password Confirmation :
+	<input type="password" name="password_confirmation"><br>
+	Birthday :
+	<input type="text" name="birthday"><br>
+	<input type="gender" name="gender"><br>
+	<input type="submit" value="수정 완료">
+<% end %>

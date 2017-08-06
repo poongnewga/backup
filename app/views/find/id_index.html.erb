@@ -1,0 +1,61 @@
+<div class="ks_find">
+  <div class="ks_find2">
+<h4 id="ks_nick"> 계정정보 찾기 </h1>
+<br></br>
+<div class="ks_tab2">
+  <button class="ks_tablinks2" onclick="openCity(event, 'ks_id')" id="ks_defaultOpen" >ID 찾기</button>
+  <button class="ks_tablinks2" onclick="openCity(event, 'ks_pw')">비밀번호 찾기</button>
+  </div>
+  
+  <div id="ks_id" class="ks_tabcontent2">
+<p class="ks_findtext">가입시 입력한 이메일을 적어주시면 닉네임을 메일로 보내드립니다^^</p>
+<br></br>
+<%= form_tag find_find_id_path do %>
+  <p class="yr_email">Email :</p> <input class="ks_email" type="email" name="email"><br></br>
+  <input class="ks_submit" type="submit" value="완료">
+<% end %>
+</div>
+
+<div id="ks_pw" class="ks_tabcontent2">
+  <p class="ks_findtext">가입시 입력한 이메일을 적어주시면 비밀번호를 메일로 보내드립니다^^</p>
+  <br></br>
+<%= form_tag find_find_id_path do %>
+  <p class="yr_email"> Email :</p>
+  <input class="ks_email" type="email" name="email"><br></br>
+  <input class="ks_submit" type="submit" value="완료">
+<% end %>
+  </div>
+
+
+</div>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("ks_tabcontent2");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("ks_tablinks2");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+<script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("ks_defaultOpen").click();
+</script>
+
+

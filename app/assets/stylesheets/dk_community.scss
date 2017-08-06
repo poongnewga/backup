@@ -1,0 +1,278 @@
+.dk_ccontainer {
+  position: relative;
+	width: 715px;
+	min-height: 971px;
+	border-radius: 11px;
+	background-color: #ffffff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+  margin-top: 165px;
+  margin-bottom: 70px;
+  .dk_title {
+    padding-top: 47px;
+    margin-left: 61px;
+  	width: 141px;
+  	height: 21px;
+    font-size: 18px;
+  	font-weight: 600;
+  	color: #fc5a5a;
+  }
+  .dk_between {
+  	width: 593px;
+  	height: 55px;
+	  background-color: #ffffff;
+  }
+  .dk_search {
+  	width: 594px;
+  	height: 60px;
+  	border-bottom: solid 1px #dbdbdb;
+    .dk_searchbox {
+      margin-top: 11px;
+    	width: 554px;
+    	height: 36px;
+    	border-radius: 10px;
+    	background-color: #ffffff;
+    	border: solid 1px #a4a4a4;
+      .dk_searchboxinput {
+        border: 0;
+        height: 24px;
+        margin-top: 5px;
+        margin-left: 12px;
+        width: 495px;
+        font-size: 12px;
+      	line-height: 1.67;
+        color: #a4a4a4;
+      }
+      ::-webkit-input-placeholder {
+      	color: #cac9c9;
+      }
+      .dk_searchicon {
+        margin-top: 7px;
+        margin-right: 13px;
+        float: right;
+        width: 19px;
+      	height: 19px;
+      	object-fit: contain;
+      }
+    }
+  }
+  .dk_postbox {
+  	width: 594px;
+  	height: 99px;
+    border-left: solid 1px #dbdbdb;
+    border-right: solid 1px #dbdbdb;
+    border-bottom: solid 1px #dbdbdb;
+  }
+  .dk_postbox:hover {
+    background-color: #fafafa;
+  }
+  .dk_top {
+    .dk_posttitle {
+      margin-top: 13px;
+      margin-left: 21px;
+      min-width: 30px;
+      height: 20px;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      color: #4a4a4a;
+      float: left;
+    }
+    .dk_hot {
+      margin-top: 13px;
+      margin-left: 6px;
+      width: 23px;
+    	height: 20px;
+    	font-size: 12px;
+    	line-height: 1.67;
+    	color: #ff5955;
+      float: left;
+    }
+    .dk_postdate {
+      width: 58px;
+    	height: 20px;
+    	font-size: 12px;
+    	line-height: 1.67;
+    	color: #a0a0a0;
+      float: right;
+      margin-top: 13px;
+      margin-right: 23px;
+    }
+  }
+  .dk_top::after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+    content:".";
+    font-size: 0;
+  }
+  .dk_content {
+    margin-left: 21px;
+    margin-top: 6px;
+    width: 551px;
+    height: 30px;
+    font-family: AppleSDGothicNeo;
+    font-size: 12px;
+    color: #909090;
+  }
+  .dk_bottom {
+    .dk_jum {
+      float: left;
+      margin-top: 12px;
+      margin-left: 22px;
+    	width: 4px;
+    	height: 4px;
+    	background-color: #ff5955;
+      border-radius: 4px;
+    }
+    .dk_nickname {
+      float: left;
+      margin-top: 3px;
+      margin-left: 4px;
+    	min-width: 32px;
+    	height: 20px;
+    	font-size: 12px;
+    	line-height: 1.67;
+    	color: #a0a0a0;
+    }
+    .dk_likeon {
+      margin-top: 2px;
+      float: right;
+      width: 14px;
+      height: 15px;
+      object-fit: contain;
+      margin-right: 4px;
+    }
+    .dk_likenum {
+      float: right;
+      width: 9px;
+    	height: 20px;
+    	font-size: 14px;
+    	line-height: 1.43;
+    	color: #fc5a5a;
+      margin-right: 8px;
+      margin-bottom: 2px;
+    }
+    .dk_comment {
+      margin-top: 2px;
+      float: right;
+    	width: 15px;
+    	height: 15px;
+    	object-fit: contain;
+      margin-right: 4px;
+    }
+    .dk_commentnum {
+      float: right;
+      margin-right: 23.7px;
+    	width: 9px;
+    	height: 20px;
+    	font-size: 14px;
+    	line-height: 1.43;
+    	color: #00BFCD;
+    }
+  }
+  .dk_foot {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 60px;
+    bottom: 43.3px;
+    width: 595px;
+    .dk_writelink {
+      margin-left: 0px;
+    }
+    .dk_write {
+      margin-left: 0;
+      width: 87px;
+    	height: 36.7px;
+    	border-radius: 4px;
+    	background-color: #fc5a5a;
+    	border: solid 1px #fc5a5a;
+      .dk_writetext {
+        margin-left: 11px;
+        float: left;
+        margin-top: 3px;
+        width: 50px;
+      	height: 21px;
+      	font-size: 18px;
+      	color: #ffffff;
+      }
+      .dk_writeicon {
+        margin-right: 6px;
+        margin-top: 8px;
+        float: right;
+      	width: 14px;
+      	height: 19px;
+      	object-fit: contain;
+      }
+    }
+    .dk_paginate {
+      .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #898989;
+        width: 49px;
+      	height: 25px;
+      	font-size: 14px;
+      	font-weight: normal;
+      	font-style: normal;
+      	font-stretch: normal;
+      	line-height: normal;
+      	letter-spacing: normal;
+        border-bottom: solid 2px #fff;
+      }
+      .current {
+        margin-top: 3.5px;
+        padding-bottom: 2px;
+      	height: 25px;
+        font-size: 14px;
+      	font-weight: 500;
+      	font-style: normal;
+      	font-stretch: normal;
+      	line-height: normal;
+      	letter-spacing: normal;
+        color: #fc5a5a;
+        border-bottom: solid 2px #fc5a5a;
+      }
+      .previous_page {
+        display: none;
+      }
+      .next_page {
+        display: none;
+      }
+    }
+    .dk_next {
+      margin-right: 0;
+    	width: 86px;
+    	height: 36.7px;
+    	border-radius: 4px;
+    	background-color: #ffffff;
+    	border: solid 1px #fc5a5a;
+      .dk_nexttext {
+        margin-left: 19px;
+        float: left;
+        margin-top: 4px;
+        width: 38.5px;
+      	height: 27px;
+      	font-size: 18px;
+      	color: #fc5a5a;
+      }
+      .dk_nextbar {
+        margin-right: 12px;
+        margin-top: 10px;
+        float: right;
+      	width: 12px;
+      	height: 17px;
+      	object-fit: contain;
+      }
+    }
+    .dk_next:hover {
+      cursor: pointer;
+      cursor: hand;
+    }
+  }
+}

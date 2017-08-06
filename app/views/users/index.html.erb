@@ -1,0 +1,173 @@
+<div class="dk_profile">
+	<div class="dk_nim">
+		<%= current_user.nickname %> 님
+	</div>
+	<div class="dk_profilefix">
+		<a href="/users/<%= current_user.id %>/edit">개인정보 수정</a>
+	</div>
+</div>
+
+<div class="dk_mytab">
+	<div class="dk_tab">
+	  <button class="dk_tablinks" id="dk_defaultOpen" onclick="openCity(event, 'dk_wait')">매칭 대기 중</button>
+	  <button class="dk_tablinks" onclick="openCity(event, 'dk_success')">예정된 미팅</button>
+	  <button class="dk_tablinks" onclick="openCity(event, 'dk_past')">지난 미팅</button>
+	</div>
+</div>
+<div class="dk_tabcontent">
+	<!-- 매칭 대기중 -->
+		<div id="dk_wait" class="dk_nonclicktab">
+		  <div class="dk_waitinner">
+		  	<div class="dk_namebox">
+					<div class="dk_namechild">가능한 요일</div>
+					<div class="dk_namechildloc2">위치</div>
+					<div class="dk_namechild">신청인원</div>
+					<div class="dk_namechild"></div>
+		  	</div>
+
+				<div class="dk_path"></div>
+				<% if !@groups.nil? %>
+					<% @groups.each do |g| %>
+						<% if g.week.to_i >= @weekstart %>
+	        	<div class="dk_meetinglist">
+							<div class="dk_meetingchild">
+								<% d_hash = JSON.parse(g.day) %>
+	              <% if d_hash["mon"] == "1" %>
+	                <%= "월 " %>
+	              <% end %>
+	              <% if d_hash["tue"] == "1" %>
+	                <%= "화 " %>
+	              <% end %>
+	              <% if d_hash["wed"] == "1" %>
+	                <%= "수 " %>
+	              <% end %>
+	              <% if d_hash["thu"] == "1" %>
+	                <%= "목 " %>
+	              <% end %>
+	              <% if d_hash["fri"] == "1" %>
+	                <%= "금" %>
+	              <% end %>
+							</div>
+							<div class="dk_meetingchildloc2">
+								<% loc = JSON.load(open("https://maps.googleapis.com/maps/api/geocode/json?latlng=#{JSON.parse(g.location)["latitude"].to_s},#{JSON.parse(g.location)["longitude"].to_s}&language=ko"))["results"][1]["formatted_address"].split(" ") %>
+								<% loc.shift(2) %>
+								<%= loc[0,3].join(" ") %>
+							</div>
+							<div class="dk_meetingchild"><%= g.people.to_s + "명"%></div>
+							<div class="dk_meetingchildUD">
+								<div class="dk_update"><%= link_to "수정", edit_group_path(g.id) %></div>
+								<div class="dk_delete"><%= link_to "삭제", "/groups/#{g.id}", method: 'delete' %></div>
+							</div>
+						</div>
+						<div class="dk_path"></div>
+				  <% end %>
+	      <% end %>
+			<% end %>
+	  	</div>
+		</div>
+
+		<!-- 만나야 할 미팅-->
+		<div id="dk_success" class="dk_nonclicktab">
+			<div class="dk_waitinner">
+		  	<div class="dk_namebox">
+					<div class="dk_namechild">날짜</div>
+					<div class="dk_namechildbiz">상대회사</div>
+					<div class="dk_namechildloc">위치</div>
+					<div class="dk_namechild">인원</div>
+					<div class="dk_namechild"></div>
+		  	</div>
+				<div class="dk_path"></div>
+				<% if !@meetings.nil? %>
+					<% @meetings.each do |m| %>
+						<% if (@time_now <= m.date) %>
+	        	<div class="dk_meetinglist">
+	            <div class="dk_meetingchild">
+								<% dt = m.date.to_s.split("") %>
+								<%= dt[2,2].join + "/" + dt[4,2].join + "/" + dt[6,2].join + "(" + m.day + ")" %>
+							</div>
+							<div class="dk_meetingchildbiz">
+		            <% if current_user.gender == "m" %>
+		              <td><%= m.users.find_by(gender: "f").company %></td>
+		            <% else %>
+		              <td><%= m.users.find_by(gender: "m").company %></td>
+		            <% end %>
+							</div>
+							<div class="dk_meetingchildloc">
+								<% loc = JSON.load(open("https://maps.googleapis.com/maps/api/geocode/json?latlng=#{JSON.parse(m.center)["latitude"].to_s},#{JSON.parse(m.center)["longitude"].to_s}&language=ko"))["results"][1]["formatted_address"].split(" ") %>
+								<% loc.shift(2) %>
+								<%= loc[0].to_s + " " + loc[1].to_s %>
+							</div>
+							<% halflength = m.users.length.to_i/2 %>
+	            			<div class="dk_meetingchild"><%= (halflength).to_s + ":" + (halflength).to_s %></div>
+							<div class="dk_meetingchildUD">
+								<div class="dk_chat"><a href="/chat/<%= m.id %>">채팅</a></div>
+							</div>
+						</div>
+						<div class="dk_path"></div>
+						<% end %>
+	      	<% end %>
+				<% end %>
+			</div>
+		</div>
+
+		<div id="dk_past" class="dk_nonclicktab">
+			<div class="dk_waitinner">
+				<div class="dk_namebox">
+					<div class="dk_namechild">날짜</div>
+					<div class="dk_namechildbiz">상대회사</div>
+					<div class="dk_namechildloc">위치</div>
+					<div class="dk_namechild">인원</div>
+					<div class="dk_namechild"></div>
+		  	</div>
+
+				<div class="dk_path"></div>
+
+				<% if !@meetings.nil? %>
+					<% @meetings.each do |m| %>
+						<% if m.date<@time_now %>
+						<div class="dk_meetinglist">
+	            <div class="dk_meetingchild">
+								<% dt = m.date.to_s.split("") %>
+								<%= dt[2,2].join + "/" + dt[4,2].join + "/" + dt[6,2].join + "(" + m.day + ")" %>
+							</div>
+							<div class="dk_meetingchildbiz">
+		            <% if current_user.gender == "m" %>
+		              <td><%= m.users.find_by(gender: "f").company %></td>
+		            <% else %>
+		              <td><%= m.users.find_by(gender: "m").company %></td>
+		            <% end %>
+							</div>
+							<div class="dk_meetingchildloc">
+								<% loc = JSON.load(open("https://maps.googleapis.com/maps/api/geocode/json?latlng=#{JSON.parse(m.center)["latitude"].to_s},#{JSON.parse(m.center)["longitude"].to_s}&language=ko"))["results"][1]["formatted_address"].split(" ") %>
+								<% loc.shift(2) %>
+								<%= loc[0].to_s + " " + loc[1].to_s %>
+							</div>
+							<% halflength = m.users.length.to_i/2 %>
+	            <div class="dk_meetingchild"><%= (halflength).to_s + ":" + (halflength).to_s %></div>
+							<div class="dk_meetingchildUD">
+								<div class="dk_deletepast"><%= link_to "기록삭제", "/meetings/#{m.id}", method: 'delete' %></div>
+							</div>
+						</div>
+						<div class="dk_path"></div>
+						<% end %>
+	      	<% end %>
+				<% end %>
+	  	</div>
+		</div>
+</div>
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("dk_nonclicktab");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("dk_tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+document.getElementById("dk_defaultOpen").click();
+</script>

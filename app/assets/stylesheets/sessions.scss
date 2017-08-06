@@ -1,0 +1,122 @@
+.ky_login-wrapper {
+	margin-top: 108px;
+	margin-bottom: 50px;
+	width: 1080px;
+	height: 600px;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 30px;
+	padding-right: 100px;
+
+	.ky_login-pic {
+		width: 600px;
+		
+		.ky_picture {
+			width: 300px;
+			height: 500px;
+			display: flex;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+		
+		.ky_app_download {
+			
+			display: flex;
+			justify-content: space-around;
+			width: 300px;
+			height: 40px;
+			
+			
+			.ky_app_down {
+	
+				width: 135px;
+				height: 40px;
+				
+			}
+		}
+	}
+
+		.ky_login-sub {
+			padding-top: 80px;
+			width: 388px;
+  		    height: 580px;
+  		    border-radius: 11px;
+  		    background-color: #ffffff;
+  		    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.49);
+			display: flex;
+			justify-content: center;
+
+			.ky_logo {
+				width: 137px;
+				height: 144px;
+				background-color: 'black';
+				margin-bottom: 53px;
+			}
+
+			.ky_login-input {
+				display: block;
+				width: 40vw;
+				height: 200px;
+
+
+				input.ky_nickname, input.ky_password {
+					width: 231px;
+				  	height: 37px;
+				  	border-radius: 4px;
+				  	background-color: #ffffff;
+				  	border: solid 1px #fc5a5a;
+				  	margin-bottom: 13px;
+				  	display: flex;
+					justify-content: center;
+					padding-left: 5px;
+					
+				}
+
+				input.ky_submit {
+					width: 231px;
+				  	height: 37px;
+				  	border-radius: 4px;
+				  	background-color: #fc5a5a;
+				  	border: solid 1px #fc5a5a;
+				  	margin-bottom: 13px;
+				  	display: flex;
+				  	color: #ffffff;
+					justify-content: center;
+				}
+
+				.ky_sign-up {
+					width: 231px;
+	  			height: 37px;
+	  			border-radius: 4px;
+	  			background-color: #ffffff;
+	  			border: solid 1px #fc5a5a;
+	  			margin-bottom: 8px;
+	  			display: flex;
+	  			justify-content: center;
+	  			align-items: center;
+	  		}
+	  			.ky_sign-up-font {
+	  				 font-family: AppleSDGothicNeo;
+	  		  	 font-size: 14px;
+	  				 font-weight: 500;
+	  				 color: #fc5a5a;
+	  				 text-decoration: none;
+	  		}
+
+	  		.ky_find {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 231px;
+					height: 7vh;
+
+	  			.ky_find-font {
+	  				font-family: NotoSansMonoCJKkr;
+  					font-size: 13px;
+  					color: #a2a2a2;
+	  			}
+	  		}
+			}
+		}
+}
+

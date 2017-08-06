@@ -1,0 +1,327 @@
+.dk_cwrapbox {
+  margin-top: 165px;
+  padding-bottom: 60px;
+	width: 715px;
+	min-height: 300px;
+	border-radius: 11px;
+	background-color: #ffffff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+  .dk_comtitle {
+    padding-top: 47px;
+    margin-left: 61px;
+  	width: 141px;
+  	height: 21px;
+    font-size: 18px;
+  	font-weight: 600;
+  	color: #fc5a5a;
+  }
+  .dk_comtitle2 {
+    font-size: 18px;
+  	font-weight: 300;
+  	color: #cdcdcd;
+  }
+  .dk_postbox {
+    position: relative;
+    margin-top: 60px;
+  	width: 594px;
+  	min-height: 240px;
+  	border: solid 1px #dbdbdb;
+  }
+  .dk_titledate {
+    .dk_title {
+      float: left;
+      margin-top: 21px;
+      margin-left: 20px;
+      min-width: 52px;
+      min-height: 20px;
+      font-size: 20px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.11;
+      letter-spacing: normal;
+      color: #4a4a4a;
+    }
+    .dk_ud {
+      margin-top: 26px;
+      margin-left: 7px;
+      float: left;
+      min-width: 47px;
+    	height: 20px;
+    	font-size: 11px;
+    	line-height: 1.82;
+    	color: #fc5a5a;
+    }
+    .dk_date {
+      float: right;
+      margin-top: 21px;
+      margin-right: 24px;
+    	width: 58px;
+    	height: 20px;
+    	font-size: 12px;
+    	line-height: 1.67;
+    	color: #a0a0a0;
+    }
+  }
+  .dk_titledate::after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+    content:".";
+    font-size: 0;
+  }
+  .dk_nickhit {
+    .dk_nickname {
+      float: left;
+      margin-top: 8px;
+      margin-left: 4px;
+      min-width: 32px;
+    	height: 20px;
+    	font-size: 12px;
+    	line-height: 1.67;
+    	color: #4a4a4a;
+    }
+    .dk_hit {
+      float: right;
+      margin-right: 24px;
+      min-width: 24px;
+    	height: 20px;
+    	font-size: 12px;
+    	line-height: 1.67;
+    	color: #a0a0a0;
+    }
+  }
+  .dk_nickhit::after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+    content:".";
+    font-size: 0;
+  }
+  .dk_contentbox {
+    margin-top: 25px;
+    margin-left: 21px;
+    width: 551px;
+  	min-height: 20px;
+  	font-size: 14px;
+  	color: #4a4a4a;
+  }
+  .dk_likecommentbox {
+    margin-top: 25px;
+    .dk_likeon {
+      margin-top: 2px;
+      float: right;
+      width: 15px;
+    	height: 15px;
+    	object-fit: contain;
+      margin-right: 4px;
+    }
+    .dk_likenum {
+      float: right;
+      width: 9px;
+      height: 20px;
+      font-size: 14px;
+      line-height: 1.43;
+      color: #fc5a5a;
+      margin-right: 12px;
+      margin-bottom: 2px;
+    }
+    .dk_comment {
+      margin-top: 2px;
+      float: right;
+      width: 15px;
+      height: 15px;
+      object-fit: contain;
+      margin-right: 4px;
+    }
+    .dk_commentnum {
+      float: right;
+      margin-right: 23.7px;
+      width: 9px;
+      height: 20px;
+      font-size: 14px;
+      line-height: 1.43;
+      color: #00BFCD;
+    }
+  }
+  .dk_likecommentbox::after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+    content:".";
+    font-size: 0;
+  }
+  .dk_commentbox {
+    margin-top: 9px;
+    .dk_commentfirst {
+      width: 551px;
+    	min-height: 108px;
+      padding-bottom: 15px;
+    	background-color: #fafafa;
+    	border: solid 1px #d6d6d6;
+    }
+    .dk_commentfirst_only {
+      width: 551px;
+    	min-height: 108px;
+      padding-bottom: 15px;
+      margin-bottom: 70px;
+    	background-color: #fafafa;
+    	border: solid 1px #d6d6d6;
+    }
+    .dk_comment {
+      width: 551px;
+    	min-height: 108px;
+      padding-bottom: 15px;
+    	background-color: #fafafa;
+      border-right: solid 1px #d6d6d6;
+      border-left: solid 1px #d6d6d6;
+    	border-bottom: solid 1px #d6d6d6;
+    }
+    .dk_nickdate2 {
+      .dk_point {
+        float: left;
+        margin-top: 15px;
+        margin-left: 20px;
+      	width: 4px;
+      	height: 4px;
+        border-radius: 4px;
+      	background-color: #ff5955;
+      }
+      .dk_nickname {
+        float: left;
+        margin-top: 6px;
+        margin-left: 4px;
+        min-width: 32.4px;
+      	height: 20px;
+      	font-size: 12px;
+      	line-height: 1.67;
+      	color: #4a4a4a;
+      }
+      .dk_date {
+        margin-top: 6px;
+        margin-left: 10px;
+        float: left;
+        width: 59.5px;
+      	height: 20px;
+      	font-size: 12px;
+      	line-height: 1.67;
+      	color: #a0a0a0;
+      }
+    }
+    .dk_comment:last-child {
+      margin-bottom: 70px;
+    }
+    .dk_nickdate2::after {
+      clear: both;
+      display: block;
+      visibility: hidden;
+      height: 0;
+      content:".";
+      font-size: 0;
+    }
+    .dk_commentcontent {
+      margin-top: 8px;
+      width: 511.1px;
+      word-wrap: break-word;
+    	min-height: 34px;
+    	font-size: 14px;
+    	color: #4a4a4a;
+    }
+  }
+  .dk_commenttextinput {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+  	width: 593px;
+  	height: 43px;
+  	background-color: #f0f0f0;
+    .dk_commentboxinput {
+      float: left;
+      border: 0;
+      height: 24px;
+      margin-top: 10px;
+      margin-left: 22px;
+      line-height: 1.67;
+      width: 500px;
+      font-size: 15px;
+      background-color: #f0f0f0;
+      color: #4a4a4a;
+    }
+    .dk_postwritebutton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: right;
+      width: 42px;
+      height: 43px;
+      background-color: #fc5a5a;
+      .dk_writeicon {
+      	width: 18px;
+      	height: 26px;
+      	object-fit: contain;
+      }
+    }
+  }
+  .dk_postlistlink {
+    margin-top: 21px;
+    margin-left: 60px;
+    left: 10px;
+  	width: 100px;
+  	height: 36.7px;
+  	border-radius: 4px;
+  	border: solid 1px #fc5a5a;
+    .dk_postlinktext {
+      float: left;
+      margin-top: 5px;
+      margin-left: 11px;
+    	width: 59.6px;
+    	height: 27px;
+    	font-size: 18px;
+    	color: #fc5a5a;
+    }
+    .dk_postlisticon {
+      margin-top: 12px;
+      margin-right: 10px;
+      float: right;
+    	width: 14px;
+    	height: 14px;
+    	object-fit: contain;
+    }
+  }
+  .dk_button {
+    border: 0;
+    cursor: pointer;
+    cursor: hand;
+  }
+  .dk_point_w {
+    float: left;
+    margin-top: 17px;
+    margin-left: 20px;
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #ff5955;
+  }
+  .dk_point_m {
+    float: left;
+    margin-top: 17px;
+    margin-left: 20px;
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #00a5b1;
+  }
+  .dk_delete {
+    margin-top: 10px;
+    margin-right: 20px;
+    float: right;
+    min-width: 21px;
+  	height: 20px;
+  	font-size: 12px;
+  	line-height: 1.67;
+  	color: #a0a0a0;
+  }
+}

@@ -1,0 +1,222 @@
+.ky_container {
+	margin-top: 150px;
+	margin-bottom: 50px;
+	width: 579px;
+	height: 850px;
+	border-radius: 11px;
+	background-color: #ffffff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+ 	padding: 72px 108px 85px 92px;
+
+	.ky_sign-up-container {
+
+		width: 350px;
+		height: 614px;
+
+		.ky_sign-up-comment {
+			width: 94px;
+	 		height: 21px;
+	  	 	font-family: AppleSDGothicNeo;
+	     	font-size: 18px;
+	     	font-weight: 500;
+	     	color: #fc5a5a;
+	     	text-align: left;
+	     	margin-bottom: 60px;
+		}
+
+		.ky_button-container {
+			display: flex;
+			padding-left: 140px;
+			margin-bottom: 13px;
+
+			.ky_val_btn {
+				width: 80px;
+  				height: 34.2px;
+  				border-radius: 4px;
+  				background-color: #ffffff;
+  				border: solid 1px #979797;
+  				font-family: NotoSansMonoCJKkr;
+  				font-size: 14px;
+  				color: #979797;
+  				cursor: pointer;
+			}
+		}
+		
+
+		.ky_item-container {
+
+			display: inline-flex;
+			justify-content: space-between;
+			margin-bottom: 13px;
+			padding-right: 0px;
+
+			.ky_item {
+				display: inline;
+				width: 77px;
+  				height: 31px;
+  				font-family: NotoSansMonoCJKkr;
+  				font-size: 14px;
+  				text-align: left;
+  				color: #8b8b8b;
+  				margin-top: 7px;
+			}
+
+			.ky_input-id, .ky_input-password, .ky_input-password-confirmation, .ky_input-date {
+				width: 210px;
+  				height: 34.2px;
+  				border-radius: 4px;
+  				background-color: #ffffff;
+  				border: solid 1px #fc5a5a;
+  				padding-left: 10px;
+			}
+
+
+			.ky_input-button-1 {
+				width: 78.2px;
+  			 	height: 34.2px;
+  			 	border-radius: 4px;
+  			 	background-color: #ffffff;
+  			 	border: solid 1px #fc5a5a;
+  			 	font-size: 14px;
+  			 	color: #fc5a5a;
+  			 	cursor: pointer;
+			}
+		 
+		 	.ky_input-button-1:hover, .ky_input-button-2:hover  {
+  		 		color: #ffffff;
+  		 		background-color: #fc5a5a;
+  		 	}
+  		 	
+			.ky_input-button-2 {
+				width: 78.2px;
+  			 	height: 34.2px;
+  			 	border-radius: 4px;
+  			 	background-color: #ffffff;
+  			 	border: solid 1px #fc5a5a;
+  			 	font-family: NotoSansMonoCJKkr;
+  			 	font-size: 14px;
+  			 	color: #fc5a5a;
+  			 	cursor: pointer;
+			}
+
+
+			.ky_input-button-3 {
+				width: 78.2px;
+  			 	height: 34.2px;
+  			 	border-radius: 4px;
+  			 	border: solid 1px #fc5a5a;
+				background-color: #fc5a5a;
+				font-family: NotoSansMonoCJKkr;
+  			 	font-size: 14px;
+  		   		color: #ffffff;
+			}
+
+			.ky_btn_space {
+				width: 16.4px;
+			}
+
+			.ky_inputfile {
+				width: 0.1px;
+				height: 0.1px;
+				opacity: 0;
+				overflow: hidden;
+				position: absolute;
+				z-index: -1;
+			}
+
+			.ky_inputfile + label {
+    			font-size: 1em;
+    			color: #fc5a5a;
+    			background-color: #ffffff;
+    			display: inline-block;
+			}
+
+			.ky_inputfile + label {
+				cursor: pointer;
+			}
+
+			.ky_inputfile + label * {
+				pointer-events: none;
+			}
+
+			.ky_file-name {
+				height: 30px;
+			}
+			
+			.ky_label-container {
+				// margin-left: 26.13px;
+				// margin-top: 15px;
+				
+				.ky_card-container {
+					display: flex;
+					align-items: center;
+					width: 70px;
+					height: 70px;
+					border-radius: 100%;
+					background-color: #fc5a5a;
+					
+					.ky_card {
+						width: 30px;
+						height: 30px;
+					}
+				}
+				
+				.ky_cardment {
+					font-size: 10px;
+					color: #fc5a5a;
+					font-family: NotoSansMonoCJKkr;
+				}
+			}
+		}
+		.ky_agreement-container {
+
+			margin-top: 30px;
+
+			.ky_agreement {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				margin-bottom: 10px;
+
+				.ky_agreement_check {
+					width: 16px;
+  				height: 16px;
+  				border-radius: 2px;
+  				background-color: #ffffff;
+  				border: solid 1px #979797;
+  				cursor: pointer;
+				}
+
+				.ky_agreement_state {
+					width: 240px;
+  				height: 20px;
+  				font-family: AppleSDGothicNeo;
+  				font-size: 14px;
+  				line-height: 1.43;
+  				text-align: left;
+  				color: #4a4a4a;
+				}
+			}
+		}
+
+		.ky_next-container {
+			width: 200px;
+			margin-top: 60px;
+			display: flex;
+			align-items: center;
+
+			.ky_next {
+				  width: 231px;
+  				height: 36.7px;
+  				border-radius: 4px;
+  				background-color: #fc5a5a;
+  				border: solid 1px #fc5a5a;
+  				font-family: AppleSDGothicNeo;
+  				font-size: 20px;
+  				font-weight: 500;
+  				color: #ffffff;
+  				cursor: pointer;
+			}
+		}
+	}
+}

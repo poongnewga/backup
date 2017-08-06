@@ -1,0 +1,114 @@
+<div class="dk_cwrapbox">
+  <h2 class="dk_comtitle">커뮤니티 <span class="dk_comtitle2">> 글내용<span></h2>
+  <div class="dk_postbox">
+    <div class="dk_titledate">
+      <div class="dk_title"><%= @post.title %></div>
+      <% if current_user == @post.user %>
+        <div class="dk_ud"><%= link_to '수정', edit_post_path(@post) %> | <%= link_to '삭제', post_path(@post), method: :delete, data: { confirm: '정말 삭제하시겠습니까?' } %></div>
+      <% end %>
+      <div class="dk_date"><%= @post.created_at.to_s.split("-")[0] + "." + @post.created_at.to_s.split("-")[1] + "." + @post.created_at.to_s.split(" ")[1].split(":").first%></div>
+    </div>
+    <div class="dk_nickhit">
+      <% if @post.user.gender == "m" %>
+        <div class="dk_point_m"></div>
+      <% else %>
+        <div class="dk_point_w"></div>
+      <% end %>
+      <div class="dk_nickname"><%= @post.user.nickname %></div>
+      <div class="dk_hit">조회수 <%= @post.hits %></div>
+    </div>
+    <div class="dk_contentbox">
+      <%= @post.content %>
+    </div>
+    <div class="dk_likecommentbox">
+      <div class="dk_commentnum"><%= @post.comments.length %></div>
+      <%= image_tag("dk_comment.png", class: "dk_comment") %>
+        <div class="dk_likenum"><%= @post.likes.length %></div>
+      <% if current_user.is_like?(@post) %>
+          <%= link_to image_tag("dk_likeon.png", alt: "좋아요 취소", class: "dk_likeon"), post_like_path(@post), method: "post" %>
+      <% else %>
+          <%= link_to image_tag("dk_likeoff.png", alt: "좋아요", class: "dk_likeon"), post_like_path(@post), method: "post" %>
+      <% end %>
+    </div>
+    <div class="dk_commentbox">
+      <% if @post.comments.first.present? && @post.comments[1].present? %>
+        <div class="dk_commentfirst">
+          <div class="dk_nickdate2">
+            <% if @post.comments.first.user.gender == "m" %>
+              <div class="dk_point_m"></div>
+            <% else %>
+              <div class="dk_point_w"></div>
+            <% end %>
+            <div class="dk_nickname"><%= @post.comments.first.user.nickname %></div>
+            <div class="dk_date"><%= @post.comments.first.created_at.to_s.split("-")[0] + "." + @post.comments.first.created_at.to_s.split("-")[1] + "." + @post.comments.first.created_at.to_s.split(" ")[1].split(":").first %></div>
+            <% if @post.comments.first.user.id == current_user.id %>
+              <div class="dk_delete"><%= link_to "삭제", post_comment_path(@post, @post.comments.first), method: "delete" %></div>
+            <% end %>
+          </div>
+          <div class="dk_commentcontent">
+            <%= @post.comments.first.content %>
+          </div>
+        </div>
+      <% elsif @post.comments.first.present? %>
+        <div class="dk_commentfirst_only">
+          <div class="dk_nickdate2">
+            <% if @post.comments.first.user.gender == "m" %>
+              <div class="dk_point_m"></div>
+            <% else %>
+              <div class="dk_point_w"></div>
+            <% end %>
+            <div class="dk_nickname"><%= @post.comments.first.user.nickname %></div>
+            <div class="dk_date"><%= @post.comments.first.created_at.to_s.split("-")[0] + "." + @post.comments.first.created_at.to_s.split("-")[1] + "." + @post.comments.first.created_at.to_s.split(" ")[1].split(":").first %></div>
+            <% if @post.comments.first.user.id == current_user.id %>
+              <div class="dk_delete"><%= link_to "삭제", post_comment_path(@post, @post.comments.first), method: "delete" %></div>
+            <% end %>
+          </div>
+          <div class="dk_commentcontent">
+            <%= @post.comments.first.content %>
+          </div>
+        </div>
+      <% end %>
+      <% if @post.comments.present? %>
+        <% @post.comments[1..-1].each do |comment| %>
+          <div class="dk_comment">
+            <div class="dk_nickdate2">
+              <% if comment.user.gender == "m" %>
+                <div class="dk_point_m"></div>
+              <% else %>
+                <div class="dk_point_w"></div>
+              <% end %>
+              <div class="dk_nickname"><%= comment.user.nickname %></div>
+              <div class="dk_date"><%= comment.created_at.to_s.split("-")[0] + "." + comment.created_at.to_s.split("-")[1] + "." + comment.created_at.to_s.split(" ")[1].split(":").first %></div>
+              <% if comment.user.id == current_user.id %>
+                <div class="dk_delete"><%= link_to "삭제", post_comment_path(@post, comment), method: "delete" %></div>
+              <% end %>
+            </div>
+            <div class="dk_commentcontent">
+              <%= comment.content %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="dk_commentinputbox">
+      <%= form_tag post_comments_path(@post), method: "post" do %>
+        <div class="dk_commenttextinput">
+          <input type="text" name="content" class="dk_commentboxinput" placeholder="댓글을 입력하세요." name="textbox"/>
+          <button type="submit" class="dk_button">
+            <div class="dk_postwritebutton">
+              <%= image_tag("dk_writeicon.png", alt: "댓글 쓰기", class: "dk_writeicon") %>
+            </div>
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <a href="/posts">
+    <div class="dk_postlistlink">
+      <div class="dk_postlinktext">
+        글 목록
+      </div>
+      <%= image_tag("dk_postlist.png", class: "dk_postlisticon") %>
+    </div>
+  </a>
+</div>
