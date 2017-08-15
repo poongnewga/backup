@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-before_action :check_ownership!, only: [:update, :destroy]
+  protect_from_forgery with: :exception
+  before_action :check_ownership!, only: [:update, :destroy]
   def create
     new_comment = Comment.new(content: params[:content],
                               post_id: params[:post_id],

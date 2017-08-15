@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
   def new
   end
 
@@ -12,45 +12,52 @@ class SessionsController < ApplicationController
       puts "PASSWORD : #{password}"
 
       @user = User.find_by(nickname: nickname)
-
+      
       if @user
         puts "유저가 존재합니다."
 
         if @user.authenticate ("#{password}")
           puts "비밀번호가 일치합니다"
-          format.html { 
-            log_in(@user)
-            flash[:alert] = "#{nickname}님 환영합니다!"
-            redirect_to root_path
-          }        
-          format.json {
-            puts "토큰을 생성합니다."
-            token = "#TO-#{nickname}#{password}-KEN#"
-            @user.token = token
-          }
-          if @user.save
-            format.html {
-              puts "html유저의 접근"
+          
+          if @user.email_confirmed == true
+            format.html { 
               log_in(@user)
-              flash[:alert] = "#{nickname}님 환영합니다!"
               redirect_to root_path
-            }
+            }        
             format.json {
-              puts "TOKEN : #{token}"
-              @res = {"status" => "OK","token" => "#{token}"}
-              puts @res
-              puts "\e[#{32}m#{"  로그인에 성공했습니다.  "}\e[0m"
+              puts "토큰을 생성합니다."
+              token = "#TO-#{nickname}#{password}-KEN#"
+              @user.token = token
             }
+              if @user.save
+                format.html {
+                  puts "html유저의 접근"
+                  log_in(@user)
+                }
+                format.json {
+                  puts "TOKEN : #{token}"
+                  @res = {"status" => "OK","token" => "#{token}"}
+                  puts @res
+                  puts "\e[#{32}m#{"  로그인에 성공했습니다.  "}\e[0m"
+                }
             
+              else
+                format.json {
+                  puts "\e[#{31}m#{"  토큰 저장(갱신)에 실패했습니다.  "}\e[0m"
+                  @res = {"status" => "FAIL", "msg" => "토큰 저장(갱신)에 실패했습니다"}
+                }
+              end
+          
           else
-            format.json {
-              puts "\e[#{31}m#{"  토큰 저장(갱신)에 실패했습니다.  "}\e[0m"
-              @res = {"status" => "FAIL", "msg" => "토큰 저장(갱신)에 실패했습니다"}
-            }
+            flash[:error] = "이메일이 아직 확인되지 않았습니다."
+            puts "이메일이 아직 확인되지 않았습니다."
+            redirect_to new_session_path
           end
+        
         else
           format.html {
-            #flash[:alert] = "비밀번호가 일치하지 않습니다."
+            flash[:error] = "비밀번호가 일치하지 않습니다."
+            puts "비밀번호가 일치하지 않습니다."
             redirect_to new_session_path    
         
           }
@@ -60,9 +67,11 @@ class SessionsController < ApplicationController
             puts "\e[#{31}m#{"  로그인에 실패했습니다.  "}\e[0m"
           }
         end
+      
       else
         format.html {
-          flash[:alert] = "해당 유저가 존재하지 않습니다."
+          flash[:error] = "해당 유저가 존재하지 않습니다."
+          puts "해당 유저가 존재하지 않습니다."
           redirect_to new_session_path
         }
         format.json { 
@@ -71,7 +80,7 @@ class SessionsController < ApplicationController
           puts "\e[#{31}m#{"  로그인에 실패했습니다.  "}\e[0m"
         }
       end
-      format.html { redirect_to '/'}
+      format.html { }
       format.json { render json: @res }
     end
   end

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   get '/tips' => 'tips#index'
   get '/tips/card1' => 'tips#card1'
+  get '/tips/card2' => 'tips#card2'
+  get '/tips/card3' => 'tips#card3'
   
   root "home#home"
   get 'find/id_index'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   post 'find/find_id'
   post 'find/find_password'
   post 'users/validate' => 'users#validate'
+  post 'users/editvalidate' => 'users#editvalidate'
 
   get '/admin' => 'admin#index'
   post '/admin' => 'admin#mail_send'
@@ -51,5 +54,18 @@ Rails.application.routes.draw do
   post 'app/signup'
   post 'app/checkuniq'
   post 'app/checkcompanion'
+  post 'app/search'
+  post 'app/refresh_posts'
+  post 'app/get_page'
+  post 'app/get_search_page'
+  post 'app/refresh_search_posts'
+  post 'app/get_post'
+  post 'app/write_comment'
+  post 'app/delete_comment'
+  post 'app/delete_post'
+  post 'app/like_toggle'
+  post 'app/write_new_post'
+  post 'app/enroll_group'
+  post 'app/mypage'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

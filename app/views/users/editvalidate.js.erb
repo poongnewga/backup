@@ -1,0 +1,8 @@
+var result = "<%= escape_javascript(@result) %>";
+
+if (result == "pw_nomatch") {
+  alert('비밀 번호가 일치하지 않습니다.')
+}
+else if (result == "updated") {
+  alert('정보가 업데이트 되었습니다.')
+}

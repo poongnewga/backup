@@ -57,12 +57,11 @@
     color: #ffffff;
 
     .ks_msgbox {
-      padding-top: 10px;
-      padding-left: 15px;
-      padding-right: 10px;
+      margin-top: 12px;
+    	width: 24px;
+    	height: 17px;
+    	border-radius: 4px;
       float: left;
-      height: 28px;
-      width: 50px;
     }
 
     .ks_logbox {
@@ -77,10 +76,11 @@
     	color: #fc5a5a;
       float: right;
       text-align: center;
-       margin-left: 12.3px;
+      margin-left: 12.3px;
     }
     
     .ks_logbox2 {
+      margin-right: 13px;
       margin-top: 9px;
     	width: 63.7px;
     	height: 22.9px;

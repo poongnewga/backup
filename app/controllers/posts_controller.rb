@@ -1,11 +1,22 @@
 class PostsController < ApplicationController
-  #protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
   before_action :authenticate_check, only: [:edit, :update, :destroy]
   before_action :user_signed_in
-  
   def index
+    require 'will_paginate/array'
+    if params[:search]
+      query = params[:search].split(' ')
+      @posts = Post.none
+      query.each do |p|
+      @posts += Post.where("title LIKE ? OR content LIKE ?", "%#{p}%", "%#{p}%")
+      end
+      @posts = @posts.uniq
+      @posts = @posts.sort_by{|e| -e[:id]}.paginate(:page => params[:page], :per_page => 7)
+    else
       @posts = Post.order("id DESC").paginate(:page => params[:page], :per_page => 7)
+    end
   end
+  
   def show
       @post = Post.find(params[:id])
       @post.hits+=1

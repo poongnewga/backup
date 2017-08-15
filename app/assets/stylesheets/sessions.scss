@@ -57,6 +57,16 @@
 				display: block;
 				width: 40vw;
 				height: 200px;
+				
+				.ky_error-comment {
+					height: 30px;
+					.ky_alert {
+						height: 30px;
+						width: 40vw;
+						color: #fc5a5a;
+						text-align: center;
+					}
+				}
 
 
 				input.ky_nickname, input.ky_password {
@@ -86,29 +96,29 @@
 
 				.ky_sign-up {
 					width: 231px;
-	  			height: 37px;
-	  			border-radius: 4px;
-	  			background-color: #ffffff;
-	  			border: solid 1px #fc5a5a;
-	  			margin-bottom: 8px;
-	  			display: flex;
-	  			justify-content: center;
-	  			align-items: center;
-	  		}
+	  				height: 37px;
+	  				border-radius: 4px;
+	  				background-color: #ffffff;
+	  				border: solid 1px #fc5a5a;
+	  				margin-bottom: 8px;
+	  				display: flex;
+	  				justify-content: center;
+	  				align-items: center;
+	  			}
 	  			.ky_sign-up-font {
 	  				 font-family: AppleSDGothicNeo;
-	  		  	 font-size: 14px;
+	  		  	 	 font-size: 13px;
 	  				 font-weight: 500;
 	  				 color: #fc5a5a;
 	  				 text-decoration: none;
-	  		}
+	  			}
 
-	  		.ky_find {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					width: 231px;
-					height: 7vh;
+	  			.ky_find {
+					 display: flex;
+					 justify-content: center;
+					 align-items: center;
+					 width: 231px;
+					 height: 7vh;
 
 	  			.ky_find-font {
 	  				font-family: NotoSansMonoCJKkr;

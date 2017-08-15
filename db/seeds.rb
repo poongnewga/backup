@@ -211,27 +211,27 @@ User.find_by(nickname: "female_9").groups << @fg3_3
 
 
 #미팅
-@m1 = Meeting.create(date: 20170810, day: "목", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}", center: {latitude: 37.49852100354786, longitude: 127.02778749884503}.to_json,
+@m1 = Meeting.create(date: 20170817, day: "목", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}", center: {latitude: 37.49852100354786, longitude: 127.02778749884503}.to_json,
                 pin_m: {latitude: 37.498427, longitude: 127.02687}.to_json, pin_f: {latitude: 37.498615, longitude: 127.028705}.to_json, p_count: "4",
                 company: "{\"male\":\"엘지화학\",\"female\":\"마이크로소프트\"}")
 
 @mg2.meetings << @m1
 @fg1.meetings << @m1
 
-@m2 = Meeting.create(date: 20170808, day: "화", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}", center: {latitude: 37.49754795419014, longitude: 127.0275}.to_json,
+@m2 = Meeting.create(date: 20170815, day: "화", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}", center: {latitude: 37.49754795419014, longitude: 127.0275}.to_json,
                 pin_m: {latitude: 37.497200, longitude: 127.026264}.to_json, pin_f: {latitude: 37.497139, longitude: 127.028553}.to_json, p_count: "4",
                 company: "{\"male\":\"네이버\",\"female\":\"메리츠화재\"}")
 @mg1.meetings << @m2
 @fg2.meetings << @m2
 
-@m3 = Meeting.create(date: 20170807, day: "월", lunchtime: "{\"start\":\"11:30\",\"finish\":\"13:00\"}", center: {latitude: 37.49837750066425, longitude: 127.0304}.to_json,
+@m3 = Meeting.create(date: 20170814, day: "월", lunchtime: "{\"start\":\"11:30\",\"finish\":\"13:00\"}", center: {latitude: 37.49837750066425, longitude: 127.0304}.to_json,
                 pin_m: {latitude: 37.498203, longitude: 127.030051}.to_json, pin_f: {latitude: 37.498552, longitude: 127.030845}.to_json,
                 company: "{\"male\":\"DK음악학원\",\"female\":\"삼성전자\"}")
 
 @mg_1.meetings << @m3
 @fg_1.meetings << @m3
 
-@m4 = Meeting.create(date: 20170801, day: "화", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}",
+@m4 = Meeting.create(date: 20170808, day: "화", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}",
                 center: {latitude: 37.496803452654305, longitude: 127.02735241225767}.to_json,
                 pin_m: "{\"latitude\":37.4973245,\"longitude\":127.0265588}",
                 pin_f: {latitude: 37.495650, longitude: 127.028146}.to_json,
@@ -240,7 +240,7 @@ User.find_by(nickname: "female_9").groups << @fg3_3
 @mg_2.meetings << @m4
 @fg_2.meetings << @m4
 
-@m5 = Meeting.create(date: 20170809, day: "수", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}",
+@m5 = Meeting.create(date: 20170816, day: "수", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}",
                 center: {latitude: 37.49828595485327, longitude: 127.0276318952714}.to_json,
                 pin_m: "{\"latitude\":37.4973245,\"longitude\":127.0265588}",
                 pin_f: {latitude: 37.498615, longitude: 127.028705}.to_json,
@@ -249,7 +249,7 @@ User.find_by(nickname: "female_9").groups << @fg3_3
 @mg_3.meetings << @m5
 @fg_3.meetings << @m5
 
-@m6 = Meeting.create(date: 20170807, day: "월", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}",
+@m6 = Meeting.create(date: 20170814, day: "월", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:00\"}",
                 center: {latitude: 37.497969754853266, longitude: 127.02763189072755}.to_json,
                 pin_m: "{\"latitude\":37.4973245,\"longitude\":127.0265588}",
                 pin_f: {latitude: 37.498615, longitude: 127.028705}.to_json,
@@ -268,7 +268,7 @@ User.find_by(nickname: "female_9").groups << @fg3_3
 @fg_5.meetings << @m6
 
 
-@m7 = Meeting.create(date: 20170811, day: "금", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:30\"}",
+@m7 = Meeting.create(date: 20170810, day: "목", lunchtime: "{\"start\":\"12:00\",\"finish\":\"13:30\"}",
                 center: {latitude: 37.49773626819181, longitude: 127.02863638854441}.to_json,
                 pin_m: "{\"latitude\":37.4973245,\"longitude\":127.0265588}",
                 pin_f: {latitude: 37.498148, longitude: 127.030714}.to_json,

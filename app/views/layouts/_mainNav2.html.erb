@@ -1,7 +1,7 @@
 <nav class="ks_nav">
   <div class="ks_wrapper2">
     <a href="/" class="logo_a"><%= image_tag("ks_tran.png", class: "ks_navlogo") %></a>
-    <% if !current_page?('https://lunchlunch-whehdrms.c9users.io/') || !current_page?('https://lunchlunch-whehdrms.c9users.io/home/home') %>
+    <% if !current_page?('/') || !current_page?('/home/home') %>
       <div class="ks_menu">
         <div><a href="/">홈</a></div>
         <div><a href="/groups/new">신청하기</a></div>
@@ -14,7 +14,7 @@
     <% if !current_user.nil? %>
       <div class="ks_login">
         <div><%= current_user.nickname %><br>로그인 상태입니다.</div>
-          <a href="/users"><%= image_tag("ks_msgbox.png", class: "ks_msgbox") %></a>
+          <a href="/users?tab=chat"><%= image_tag("ks_msgbox.png", class: "ks_msgbox") %></a>
         <div class="ks_logbox2"><%= link_to '로그아웃', session_path(current_user), method: 'delete' %></div>
       </div>
     <% else %>

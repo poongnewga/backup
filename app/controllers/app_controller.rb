@@ -1,6 +1,5 @@
 class AppController < ApplicationController
-    
-  #POST /app/login with params: { nickname: , password: , push_token: }
+  # POST /app/login with params: { nickname: , password: , push_token: }
   def login
     puts '로그인을 시작합니다.'
     nickname = params[:nickname]
@@ -114,8 +113,26 @@ class AppController < ApplicationController
       
       # @user.first가 직접적인 유저 모델(배열에 한 개 담겨 있다.)
       puts "예정된 미팅 수 : #{@user.first.meetings.count}"
-      puts @user.first.meetings.first.as_json.pretty_inspect
-      @res = @user.first.meetings.order(:date).as_json
+      # puts @user.first.meetings.first.as_json.pretty_inspect
+      @meets = @user.first.meetings.order(:date)
+
+      @m = []
+      @n = []
+
+      @meets.each do |meet|
+        if meet.date >= Time.now.to_s.slice(0,10).split("-").join().to_i
+          @m << meet
+        else
+          @n << meet
+        end
+      end
+      puts '예정'
+      puts @m.inspect
+      puts '과거'
+      puts @n.inspect
+
+      @res = @m.as_json
+      # puts @res
       # 성별을 추가해서 전달. 이후 이는 앱에서 제거되어 출력할 예정
       @res << { status: "ok", gender: @user.first.gender }
       
@@ -179,4 +196,607 @@ class AppController < ApplicationController
     render json: @res
   end
   
+  def search
+    puts params[:query]
+    
+    @res = {status: "ok", data: "data"}
+    
+    render json: @res
+  end
+  
+  def refresh_posts
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      @posts = []
+      
+      Post.order(created_at: :desc).limit(4).each do |post|
+        i = post.id
+        t = post.created_at.to_s
+        n = post.user.nickname
+        g =  post.user.gender
+        l =  post.likes.count
+        c = post.comments.count
+        post = post.as_json
+        post.delete("content")
+        post.delete("updated_at")
+        # puts t.class
+        post[:created_at] = "#{t.slice(0,4)}년 #{t.slice(5,2)}월 #{t.slice(8,2)}일"  
+        # puts post[:created_at]
+        post[:from] = n
+        post[:gender] = g
+        post[:likeCount] = l
+        
+        like = Like.find_by(user_id: @user.id,
+                            post_id: i)
+    
+        if like.nil?
+          post[:liked] = false
+        else
+          post[:liked] = true
+        end         
+        
+        post[:commentCount] = c
+
+        @posts << post
+      end
+      
+      @res = {status: "ok", data: @posts}
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res
+    
+  end
+  
+  def get_page
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      @posts = []
+      
+      if (Post.order(created_at: :desc).limit(4).offset((params[:page].to_i-1)*4).empty?)
+        @res = {status: "fail", msg: "데이터가 없습니다."}
+        render json: @res
+        return false
+      end
+      
+      Post.order(created_at: :desc).limit(4).offset((params[:page].to_i-1)*4).each do |post|
+        i = post.id
+        t = post.created_at.to_s
+        n = post.user.nickname
+        g =  post.user.gender
+        l =  post.likes.count
+        c = post.comments.count
+        post = post.as_json
+        post.delete("content")
+        post.delete("updated_at")
+        # puts t.class
+        post[:created_at] = "#{t.slice(0,4)}년 #{t.slice(5,2)}월 #{t.slice(8,2)}일"  
+        # puts post[:created_at]
+        post[:from] = n
+        post[:gender] = g
+        post[:likeCount] = l
+        
+        like = Like.find_by(user_id: @user.id,
+                            post_id: i)
+    
+        if like.nil?
+          puts "좋아하지 않음"
+          post[:liked] = false
+        else
+          puts "좋아함"
+          post[:liked] = true
+        end         
+        
+        post[:commentCount] = c
+
+        @posts << post
+      end
+      
+      @res = {status: "ok", data: @posts}
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    render json: @res
+  end
+  
+  def get_search_page
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      @posts = []
+      
+      if (Post.where("title LIKE ?", "%#{params[:query].strip}%").order(created_at: :desc).limit(4).offset((params[:page].to_i-1)*4).empty?)
+        @res = {status: "fail", msg: "데이터가 없습니다."}
+        render json: @res
+        return false
+      end
+      
+      Post.where("title LIKE ?", "%#{params[:query].strip}%").order(created_at: :desc).limit(4).offset((params[:page].to_i-1)*4).each do |post|
+        i = post.id
+        t = post.created_at.to_s
+        n = post.user.nickname
+        g =  post.user.gender
+        l =  post.likes.count
+        c = post.comments.count
+        post = post.as_json
+        post.delete("content")
+        post.delete("updated_at")
+        # puts t.class
+        post[:created_at] = "#{t.slice(0,4)}년 #{t.slice(5,2)}월 #{t.slice(8,2)}일"  
+        # puts post[:created_at]
+        post[:from] = n
+        post[:gender] = g
+        post[:likeCount] = l
+        
+        like = Like.find_by(user_id: @user.id,
+                            post_id: i)
+    
+        if like.nil?
+          post[:liked] = false
+        else
+          post[:liked] = true
+        end         
+        
+        post[:commentCount] = c
+
+        @posts << post
+      end
+      
+      @res = {status: "ok", data: @posts}
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    render json: @res
+  end
+  
+  def refresh_search_posts
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      @posts = []
+      
+      Post.where("title LIKE ?", "%#{params[:query].strip}%").order(created_at: :desc).limit(4).each do |post|
+        i = post.id
+        t = post.created_at.to_s
+        n = post.user.nickname
+        g =  post.user.gender
+        l =  post.likes.count
+        c = post.comments.count
+        post = post.as_json
+        post.delete("content")
+        post.delete("updated_at")
+        # puts t.class
+        post[:created_at] = "#{t.slice(0,4)}년 #{t.slice(5,2)}월 #{t.slice(8,2)}일"  
+        # puts post[:created_at]
+        post[:from] = n
+        post[:gender] = g
+        post[:likeCount] = l
+        
+        like = Like.find_by(user_id: @user.id,
+                            post_id: i)
+    
+        if like.nil?
+          post[:liked] = false
+        else
+          post[:liked] = true
+        end          
+        
+        post[:commentCount] = c
+
+        @posts << post
+      end
+      
+      @res = {status: "ok", data: @posts}
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res
+    
+  end  
+  
+  def get_post
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      
+      @post = Post.find_by(id: params[:id])
+      
+      @comments = []
+      
+      @post.comments.each do |comment|
+        ct = comment.created_at.to_s
+        @comment = {}
+        @comment[:id] = comment.id
+        @comment[:nickname] = comment.user.nickname
+        @comment[:gender] = comment.user.gender
+        @comment[:content] = comment.content
+        @comment[:created_at] = "#{ct.slice(2,2)}.#{ct.slice(5,2)}.#{ct.slice(8,2)} #{ct.slice(11,2)}:#{ct.slice(14,2)}" 
+        @comments << @comment
+      end
+      
+      
+      @post.hits += 1
+      @post.save
+      
+      t = @post.created_at.to_s
+      n = @post.user.nickname
+      g = @post.user.gender
+      l = @post.likes.count
+      c = @post.comments.count
+      
+      post = @post.as_json
+      post.delete("updated_at")
+      post[:created_at] = "#{t.slice(0,4)}년 #{t.slice(5,2)}월 #{t.slice(8,2)}일 #{t.slice(11,2)}:#{t.slice(14,2)}"  
+      post[:from] = n
+      post[:gender] = g
+      post[:likeCount] = l
+      post[:commentCount] = c
+      post[:nickname] = n
+      
+      like = Like.find_by(user_id: @user.id,
+                          post_id: params[:id])
+  
+      if like.nil?
+        post[:liked] = false
+      else
+        post[:liked] = true
+      end         
+      
+      post[:comments] = @comments.as_json
+      
+      
+      
+      
+      
+      @res = {status: "ok", data: post}
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res
+    
+  end  
+  
+  def write_comment
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      
+      @post = Post.find_by(id: params[:id])
+      
+      new_comment = @post.comments.build
+      new_comment.user_id = @user.id
+      new_comment.content = params[:content]
+      new_comment.save
+      
+      @comments = []
+      
+      @post.comments.each do |comment|
+        ct = comment.created_at.to_s
+        @comment = {}
+        @comment[:id] = comment.id
+        @comment[:nickname] = comment.user.nickname
+        @comment[:gender] = comment.user.gender
+        @comment[:content] = comment.content
+        @comment[:created_at] = "#{ct.slice(2,2)}.#{ct.slice(5,2)}.#{ct.slice(8,2)} #{ct.slice(11,2)}:#{ct.slice(14,2)}" 
+        @comments << @comment
+      end
+      
+      
+      @post.hits += 1
+      @post.save
+      
+      t = @post.created_at.to_s
+      n = @post.user.nickname
+      g = @post.user.gender
+      l = @post.likes.count
+      c = @post.comments.count
+      
+      post = @post.as_json
+      post.delete("updated_at")
+      post[:created_at] = "#{t.slice(0,4)}년 #{t.slice(5,2)}월 #{t.slice(8,2)}일 #{t.slice(11,2)}:#{t.slice(14,2)}"  
+      post[:from] = n
+      post[:gender] = g
+      post[:likeCount] = l
+      post[:commentCount] = c
+      post[:nickname] = n
+      
+      like = Like.find_by(user_id: @user.id,
+                          post_id: params[:id])
+  
+      if like.nil?
+        post[:liked] = false
+      else
+        post[:liked] = true
+      end         
+      
+      post[:comments] = @comments.as_json
+      
+      
+      
+      
+      
+      @res = {status: "ok", data: post}
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res
+    
+  end
+  
+  def delete_comment
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      
+      @post = Post.find_by(id: params[:id])
+      
+      Comment.find_by(id: params[:comment_id]).destroy
+      
+      @comments = []
+      
+      @post.comments.each do |comment|
+        ct = comment.created_at.to_s
+        @comment = {}
+        @comment[:id] = comment.id
+        @comment[:nickname] = comment.user.nickname
+        @comment[:gender] = comment.user.gender
+        @comment[:content] = comment.content
+        @comment[:created_at] = "#{ct.slice(2,2)}.#{ct.slice(5,2)}.#{ct.slice(8,2)} #{ct.slice(11,2)}:#{ct.slice(14,2)}" 
+        @comments << @comment
+      end
+      
+      
+      @post.hits += 1
+      @post.save
+      
+      t = @post.created_at.to_s
+      n = @post.user.nickname
+      g = @post.user.gender
+      l = @post.likes.count
+      c = @post.comments.count
+      
+      post = @post.as_json
+      post.delete("updated_at")
+      post[:created_at] = "#{t.slice(0,4)}년 #{t.slice(5,2)}월 #{t.slice(8,2)}일 #{t.slice(11,2)}:#{t.slice(14,2)}"  
+      post[:from] = n
+      post[:gender] = g
+      post[:likeCount] = l
+      post[:commentCount] = c
+      post[:nickname] = n
+      
+      like = Like.find_by(user_id: @user.id,
+                          post_id: params[:id])
+  
+      if like.nil?
+        post[:liked] = false
+      else
+        post[:liked] = true
+      end   
+      
+      post[:comments] = @comments.as_json
+      
+      
+      
+      
+      
+      @res = {status: "ok", data: post}
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res
+    
+  end 
+  
+  def delete_post
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      
+      @post = Post.find_by(id: params[:id])
+      
+      @post.destroy
+
+      @res = {status: "ok", msg: "포스트 삭제 성공"}
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res
+    
+  end
+  
+  
+  def like_toggle
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      @post = Post.find_by(id: params[:id])
+      
+      like = Like.find_by(user_id: @user.id,
+                          post_id: params[:id])
+  
+      if like.nil?
+        Like.create(user_id: @user.id,
+                    post_id: params[:id])
+      else
+        like.destroy
+      end      
+      
+      
+      
+      @comments = []
+      
+      @post.comments.each do |comment|
+        ct = comment.created_at.to_s
+        @comment = {}
+        @comment[:id] = comment.id
+        @comment[:nickname] = comment.user.nickname
+        @comment[:gender] = comment.user.gender
+        @comment[:content] = comment.content
+        @comment[:created_at] = "#{ct.slice(2,2)}.#{ct.slice(5,2)}.#{ct.slice(8,2)} #{ct.slice(11,2)}:#{ct.slice(14,2)}" 
+        @comments << @comment
+      end
+      
+      t = @post.created_at.to_s
+      n = @post.user.nickname
+      g = @post.user.gender
+      l = @post.likes.count
+      c = @post.comments.count
+      
+      post = @post.as_json
+      post.delete("updated_at")
+      post[:created_at] = "#{t.slice(0,4)}년 #{t.slice(5,2)}월 #{t.slice(8,2)}일 #{t.slice(11,2)}:#{t.slice(14,2)}"  
+      post[:from] = n
+      post[:gender] = g
+      post[:likeCount] = l
+      post[:commentCount] = c
+      post[:nickname] = n
+      
+      like = Like.find_by(user_id: @user.id,
+                          post_id: params[:id])
+  
+      if like.nil?
+        post[:liked] = false
+      else
+        post[:liked] = true
+      end    
+      
+      post[:comments] = @comments.as_json
+      
+      
+   
+      
+      
+      
+      
+      
+      @res = {status: "ok", data: post}
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res
+    
+  end  
+ 
+  def write_new_post
+    
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      
+      @post = Post.new
+      @post.user_id = @user.id
+      @post.title = params[:title]
+      @post.content = params[:content]
+      
+      if @post.save
+        @res = {status: "ok", msg: '글쓰기 성공'}
+      else
+        @res = {status: 'fail', msg: '글쓰기 실패'}
+      end
+
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res    
+    
+  end
+  
+  def enroll_group
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      
+      @day = JSON.parse(params[:day])
+      @day.each do |k,v|
+        if @day[k] == true
+          @day[k] = "1"
+        else
+          @day[k] = "0"
+        end
+      end
+      @day = @day.to_json      
+      
+      @group = Group.create(gender: @user.gender,
+          people: params[:peopleCount],
+          day: @day,
+          week: params[:week],
+          company: @user.company,
+          matched: false,
+          lunchtime: params[:lunchtime],
+          location: params[:location]
+        )
+      @user.groups << @group
+      
+      @people = JSON.parse(params[:enrolledPeople])
+      
+      @people.each do |people|
+        if people != nil
+          User.find_by(nickname: people).groups << @group
+          puts people          
+        elsif people == nil
+          puts '없습니다.'
+        end
+      end
+      
+      if params[:timeSaved] == "true"
+        @user.location = params[:location]
+      end
+      
+      if params[:locationSaved] == "true"
+        @user.lunchtime = params[:lunchtime]
+      end
+      
+      @user.save
+      
+      @res = {status: "ok", msg: "등록 성공"}
+
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res      
+  end
+  
+  def mypage
+    if @user = User.find_by(token: params[:token])
+      puts '유저 존재'
+      
+      @meets = @user.meetings.order(:date)
+
+      @oldmeets = []
+      @waits = []
+      @res = {}
+
+      @meets.each do |meet|
+        if meet.date < Time.now.to_s.slice(0,10).split("-").join().to_i
+          @oldmeets << meet
+        end
+      end
+      
+      @user.groups.each do |group|
+        if group.matched == false
+          @waits << group
+        end
+      end
+      
+      @res[:oldmeets] = @oldmeets.as_json
+      @res[:waits] = @waits.as_json
+      @res[:status] = "ok"
+
+    else
+      @res = {status: "fail", msg: "토큰만료"}
+    end
+    
+    
+    render json: @res      
+  end
 end
+

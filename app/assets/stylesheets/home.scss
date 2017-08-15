@@ -1,223 +1,314 @@
-.ky_main-container {
+.hj-wrapper {
+	
 	width: 881px;
-    height: 879px;
-    background-color: #ffffff;
-    background-image: url("http://wode.kr/media/ky_path.png");
-    background-size: 100% 100%;
-    border-radius: 11px;
+  	height: 1371px;
+  	border-radius: 11px;
+  	background-color: #ffffff;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
-    position: relative;
-    z-index: 1;
-    margin-bottom: 80px;
-    
-    
-    
+    padding-bottom: 30px;
+    padding-top: 50px;
+    margin-bottom: 100px;
+	
 
-	.ky_unclear-container {
-		width:881px;
-		height: 879px;
-		left: 0px;
-		top: 0px;
-		position: absolute;
-		z-index: 3;
-		display: none;
-        opacity: 0.7;
-		background-color: white;
+	.ky_explain {
+	  width: 758px;
+	  height: 151px;
+	  border-radius: 11px;
+	  background-color: #ffffff;
+	  border: solid 2px #dedede;
+	  margin-bottom: 50px;
+	  padding-top: 20px;
+	  
+	  .ky_explain-title { 
+	  	width: 72px;
+  		height: 20px;
+ 		font-family: NotoSansMonoCJKkr;
+  		font-size: 13px;
+  		font-weight: bold;
+  		text-align: left;
+  		color: #4a4a4a;
+  		margin-bottom: 20px;
+  	 	margin-left: 30px;
+	  }
+	  
+	  .ky_explain-content {
+	  	width: 690px;
+		height: 60px;
+		font-family: NotoSansMonoCJKkr;
+		font-size: 13px;
+		line-height: 1.43;
+		text-align: left;
+		color: #4a4a4a;
+	  }
 	}
-
-	.ky_step1 {
+	
+	.ky_main-container {
+		width: 600px;
+	    height: 1100px;
+	    background-color: #ffffff;
+	    background-image: url("ky_path.png");
+	    background-size: 100% 100%;
+	    position: relative;
+	    z-index: 1;
+	    margin-bottom: 80px;
+	    
+	    
+	    
+	
+		.ky_unclear-container {
+			width: 700px;
+			height: 1100px;
+			left: 0px;
+			top: 0px;
 			position: absolute;
-			z-index: 2;
-			left: 125px;
-			top: 65px;
-			.ky_step1-title {
-					width: 229px;
-		  		height: 50px;
-		  		font-family: NotoSansMonoCJKkr;
-		  		font-size: 18px;
-		  		line-height: 1.44;
-		  		text-align: left;
-		  		color: #4a4a4a;
-		  		font-weight: bold;
+			z-index: 3;
+			display: none;
+	        opacity: 0.7;
+			background-color: white;
+		}
+	
+		.ky_step1 {
+				position: absolute;
+				z-index: 2;
+				left: 125px;
+				top: 20px;
+				.ky_step1-title {
+					width: 186px;
+			  		height: 50px;
+			  		font-family: NotoSansMonoCJKkr;
+			  		font-size: 18px;
+			  		line-height: 1.44;
+			  		text-align: left;
+			  		color: #4a4a4a;
+			  		font-weight: bold;
+				}
+	
+				.ky_step1-content {
+					  width: 186px;
+			 			height: 100px;
+			 			font-family: NotoSansMonoCJKkr;
+			 			font-size: 16px;
+			 			line-height: 1.44;
+			 			text-align: left;
+			 			color: #4a4a4a;
+				}
+				
+		}
+	
+	
+		.ky_step2 {
+				position: absolute;
+				z-index: 2;
+				top: 320px;
+				left: 180px;
+				.ky_step2-title {
+						width: 218px;
+						height: 50px;
+						font-family: NotoSansMonoCJKkr;
+						font-size: 18px;
+						line-height: 1.44;
+						text-align: left;
+						font-weight: bold;
+				}
+					.ky_step2-content {
+					  width: 220px;
+					  height: 100px;
+			 			font-family: NotoSansMonoCJKkr;
+						font-size: 16px;
+						line-height: 1.44;
+						text-align: left;
+						color: #4a4a4a;
+				}
+				
+		}
+	
+		.ky_step3 {
+				position: absolute;
+				z-index: 2;
+				top: 560px;
+				left: 250px;
+	
+				.ky_step3-title {
+						width: 250px;
+						height: 50px;
+						font-family: NotoSansMonoCJKkr;
+						font-size: 18px;
+						line-height: 1.44;
+						text-align: left;
+						font-weight: bold;
+				}
+	
+				.ky_step3-content {
+					 	width: 250px;
+	  					height: 100px;
+	  					font-family: NotoSansMonoCJKkr;
+		 				font-size: 17px;
+		 				line-height: 1.44;
+		 				text-align: left;
+		 				color: #4a4a4a;
+				}
+				
 			}
-
-			.ky_step1-content {
-				  width: 229px;
-		 			height: 100px;
-		 			font-family: NotoSansMonoCJKkr;
-		 			font-size: 17px;
-		 			line-height: 1.44;
-		 			text-align: left;
-		 			color: #4a4a4a;
-		 			position: flex;
-					justify-content: flex-end;
+	
+		.ky_step4 {
+				position: absolute;
+				z-index: 2;
+				top: 860px;
+				left: 150px;
+	
+				.ky_step4-title {
+					width: 420px;
+			 		height: 50px;
+			 		font-family: NotoSansMonoCJKkr;
+			 		font-size: 18px;
+			 		line-height: 1.44;
+			 		text-align: left;
+			 		font-weight: bold;
+			 		margin-left: 0px;
+				}
+	
+				.ky_step4-content {
+					width: 420px;
+	  				height: 100px;
+	  				font-family: NotoSansMonoCJKkr;
+	  				font-size: 17px;
+	  				line-height: 1.44;
+	  				text-align: left;
+	  				color: #4a4a4a;
+				}
+				
 			}
+	
+		.ky_step5 {
+				position: absolute;
+				z-index: 2;
+				top: 1079px;
+				left: 240px;
+				.ky_step5-title {
+					width: 100px;
+						height: 40px;
+						font-family: NotoSansMonoCJKkr;
+						font-size: 18px;
+						line-height: 1;
+						text-align: left;
+						font-weight: bold;
+							border-bottom: double 5px #fc5a5a;
+				}
+	
+				.ky_step5-content {
+					  width: 229px;
+			 			height: 100px;
+			 			font-family: NotoSansMonoCJKkr;
+			 			font-size: 18px;
+			 			line-height: 1.44;
+			 			text-align: left;
+			 			color: #4a4a4a;
+				}
+			}
+			
+			.ky_circle1 {
+				width: 33px;
+				height: 33px;
+				position: absolute;
+				z-index: 4;
+				left: 220px;
+				top: 0px;
+				display: none;
+				background-color: #fc5a5a;
+				border-radius: 50%;
+			}
+	
+			.ky_circle2 {
+				width: 23px;
+				height: 23px;
+				position: absolute;
+				z-index: 4;
+				left: 167px;
+				top: 288px;
+				display: none;
+				background-color: #fc5a5a;
+				border-radius: 50%;
+			}
+	
+			.ky_circle3 {
+				width: 23px;
+				height: 23px;
+				position: absolute;
+				z-index: 4;
+				left: 264px;
+				top: 513px;
+				display: none;
+				background-color: #fc5a5a;
+				border-radius: 50%;
+			}
+	
+			.ky_circle4 {
+				width: 23px;
+				height: 23px;
+				position: absolute;
+				z-index: 4;
+				left: 89px;
+				top: 840px;
+				display: none;
+				background-color: #fc5a5a;
+				border-radius: 50%;
+			}
+	
+			.ky_circle5 {
+				width: 33px;
+				height: 31px;
+				position: absolute;
+				z-index: 4;
+				left: 247px;
+				top: 1070px;
+				display: none;
+				background-color: #fc5a5a;
+				border-radius: 50%;
+			}
+			
+			.ky_step1-picture {
+				background-image: url("ky_search.png");
+	   			background-size: 100% 100%;
+	   			width: 152px;
+	   			height: 158px;
+	   			position: absolute;
+	   			z-index: 2;
+	   			left: 350px;
+	   			top: 100px;
+			}
+			
+			.ky_step2-picture {
+				background-image: url("ky_match.png");
+	   			background-size: 100% 100%;
+	   			width: 150px;
+	   			height: 150px;
+	   			position: absolute;
+	   			z-index: 2;
+	   			left: 0px;
+	   			top: 330px;
+			}
+			
+			.ky_step3-picture {
+				background-image: url("ky_chat.png");
+	   			background-size: 100% 100%;
+	   			width: 194px;
+	   			height: 187px;
+	   			position: absolute;
+	   			z-index: 2;
+	   			left: 435px;
+	   			top: 680px;
+			}
+			
+			.ky_step4-picture {
+				background-image: url("ky_meet.png");
+	   			background-size: 100% 100%;
+	   			width: 144px;
+	   			height: 146px;
+	   			position: absolute;
+	   			z-index: 2;
+	   			left: 0px;
+	   			top: 950px;
+			}
+			
 	}
-
-
-	.ky_step2 {
-			position: absolute;
-			z-index: 2;
-			top: 140px;
-			left: 635px;
-			.ky_step2-title {
-					width: 218px;
-					height: 50px;
-					font-family: NotoSansMonoCJKkr;
-					font-size: 18px;
-					line-height: 1.44;
-					text-align: left;
-					font-weight: bold;
-			}
-				.ky_step2-content {
-				  width: 220px;
-				  height: 100px;
-		 			font-family: NotoSansMonoCJKkr;
-					font-size: 17px;
-					line-height: 1.44;
-					text-align: left;
-					color: #4a4a4a;
-			}
-	}
-
-	.ky_step3 {
-			position: absolute;
-			z-index: 2;
-			top: 330px;
-			left: 120px;
-
-			.ky_step3-title {
-					width: 350px;
-					height: 50px;
-					font-family: NotoSansMonoCJKkr;
-					font-size: 18px;
-					line-height: 1.44;
-					text-align: left;
-					font-weight: bold;
-			}
-
-			.ky_step3-content {
-				  width: 350px;
-  				height: 100px;
-  				font-family: NotoSansMonoCJKkr;
-	 				font-size: 17px;
-	 				line-height: 1.44;
-	 				text-align: left;
-	 				color: #4a4a4a;
-			}
-		}
-
-	.ky_step4 {
-			position: absolute;
-			z-index: 2;
-			top: 480px;
-			left: 420px;
-
-			.ky_step4-title {
-				width: 420px;
-		 		height: 50px;
-		 		font-family: NotoSansMonoCJKkr;
-		 		font-size: 18px;
-		 		line-height: 1.44;
-		 		text-align: left;
-		 		font-weight: bold;
-			}
-
-			.ky_step4-content {
-				  width: 420px;
-  				height: 100px;
-  				font-family: NotoSansMonoCJKkr;
-  				font-size: 17px;
-  				line-height: 1.44;
-  				text-align: left;
-  				color: #4a4a4a;
-			}
-		}
-
-	.ky_step5 {
-			position: absolute;
-			z-index: 2;
-			top: 700px;
-			left: 460px;
-			.ky_step5-title {
-				width: 100px;
-					height: 40px;
-					font-family: NotoSansMonoCJKkr;
-					font-size: 18px;
-					line-height: 1;
-					text-align: left;
-					font-weight: bold;
-						border-bottom: double 5px #fc5a5a;
-			}
-
-			.ky_step5-content {
-				  width: 229px;
-		 			height: 100px;
-		 			font-family: NotoSansMonoCJKkr;
-		 			font-size: 18px;
-		 			line-height: 1.44;
-		 			text-align: left;
-		 			color: #4a4a4a;
-			}
-		}
-		
-		.ky_circle1 {
-			width: 30px;
-			height: 33px;
-			position: absolute;
-			z-index: 4;
-			left: 200px;
-			top: 72px;
-			display: none;
-			background-color: #fc5a5a;
-			border-radius: 50%;
-		}
-
-		.ky_circle2 {
-			width: 34px;
-			height: 39px;
-			position: absolute;
-			z-index: 4;
-			left: 586px;
-			top: 134px;
-			display: none;
-			background-color: #fc5a5a;
-			border-radius: 50%;
-		}
-
-		.ky_circle3 {
-			width: 30px;
-			height: 30px;
-			position: absolute;
-			z-index: 4;
-			left: 200px;
-			top: 281px;
-			display: none;
-			background-color: #fc5a5a;
-			border-radius: 50%;
-		}
-
-		.ky_circle4 {
-			width: 30px;
-			height: 30px;
-			position: absolute;
-			z-index: 4;
-			left: 690px;
-			top: 417px;
-			display: none;
-			background-color: #fc5a5a;
-			border-radius: 50%;
-		}
-
-		.ky_circle5 {
-			width: 30px;
-			height: 35px;
-			position: absolute;
-			z-index: 4;
-			left: 470px;
-			top: 700px;
-			display: none;
-			background-color: #fc5a5a;
-			border-radius: 50%;
-		}
-	}
+}

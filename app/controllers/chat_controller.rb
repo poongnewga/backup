@@ -1,5 +1,4 @@
 class ChatController < ApplicationController
-  #protect_from_forgery with: :exception
   def index
     @room = params[:id]
     day_row = Meeting.find(params[:id]).day

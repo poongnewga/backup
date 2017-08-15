@@ -1,5 +1,5 @@
 class ContactController < ApplicationController
-    #protect_from_forgery with: :exception
+    protect_from_forgery with: :exception
     def new
        @contact = Contact.new
     end

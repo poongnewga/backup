@@ -366,6 +366,9 @@
       data: {"user": $('#add_nick1').val(), "authenticity_token" : $("input[name=authenticity_token]").val()}
     }).done(function(a){
       document.getElementById('yr_result1').innerHTML = result;
+      if(result == "인증되었습니다."){
+       document.getElementById('add_nick1').readOnly = true;
+      }
     });
     
     return false;
@@ -378,6 +381,9 @@
       data: {"user": $('#add_nick2').val(), "authenticity_token" : $("input[name=authenticity_token]").val()}
     }).done(function(a){
       document.getElementById('yr_result2').innerHTML = result;
+      if(result == "인증되었습니다."){
+       document.getElementById('add_nick2').readOnly = true;
+      }
     });
     
     return false;
@@ -390,6 +396,9 @@
       data: {"user": $('#add_nick3').val(), "authenticity_token" : $("input[name=authenticity_token]").val()}
     }).done(function(a){
       document.getElementById('yr_result3').innerHTML = result;
+      if(result == "인증되었습니다."){
+       document.getElementById('add_nick3').readOnly = true;
+      }
     });
     
     return false;

@@ -35,7 +35,7 @@
   console.log('요일 : ', $('#day').text());
 
   // 소켓을 생성한다. 자동으로 연결됨
-  var socket = io('http://chat.heeham.com', {jsonp : false});
+  var socket = io('http://chat.heeham.com:8080', {jsonp : false});
 
   socket.on('connect', function () {
     socket.emit('joinRoom', user, room, day);

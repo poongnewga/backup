@@ -1,13 +1,71 @@
-<h1>정보 수정</h1>
-<%= form_tag users_path do  %>
-	Nickname :
-	<input type="text" name="nickname"><br>
-	Password :
-	<input type="password" name="password"><br>
-	Password Confirmation :
-	<input type="password" name="password_confirmation"><br>
-	Birthday :
-	<input type="text" name="birthday"><br>
-	<input type="gender" name="gender"><br>
-	<input type="submit" value="수정 완료">
-<% end %>
+<div class="dk_myeditwrap">
+	<%= form_tag ("/users/#{current_user.id}"), method: :put do %>
+	<input type="hidden" name="id" value="<%= current_user.id %>">
+	<div class="dk_edittitle">개인 정보 수정</div>
+	<div class="dk_nickname">
+		<div class="dk_nicktitle">닉네임</div>
+		<div class="dk_nickinputbox">
+			<input class="dk_nickinput" placeholder="<%= current_user.nickname %>" readonly>
+		</div>
+	</div>
+	<div class="dk_widthbox">
+		<div class="dk_lefttitle">나이</div>
+		<div class="dk_rightinputbox">
+			<input class="dk_realinput" value="<%= current_user.age %>" type="text" name="age">
+		</div>
+	</div>
+	<div class="dk_widthbox">
+		<div class="dk_lefttitle">현재 비밀번호</div>
+		<div class="dk_rightinputbox">
+			<input class="dk_realinput" name="current_password">
+		</div>
+	</div>
+	<div class="dk_passwordtext">현재 비밀번호를 입력 하셔야 수정 가능합니다.</div>
+	<div class="dk_widthbox">
+		<div class="dk_lefttitle">새 비밀번호</div>
+		<div class="dk_rightinputbox">
+			<input class="dk_realinput" placeholder="6자 이상 입력해주세요" type="password" name="password" minlength="6">
+		</div>
+	</div>
+	<div class="dk_widthbox">
+		<div class="dk_lefttitle">새 비밀번호 확인</div>
+		<div class="dk_rightinputbox">
+			<input class="dk_realinput" type="password" name="password_confirmation" minlength="6">
+		</div>
+	</div>
+	<button class="dk_submitbutton">
+		<div class="dk_submittext">수정 완료</div>
+	</button>
+	<% end %>
+</div>
+
+<script>
+//AJAX로 수정중
+	$('.dk_submitbutton').on('click', function (){
+		console.log('start');
+		console.log($('input[name=age]').val());
+		
+	if ($('input[name=current_password]').val() == "") {
+	  alert('정보를 수정하시려면 비밀 번호를 써주세요.')
+      return false;
+	}
+	
+	var age = $('input[name=age]').val();
+	
+	if ( !(age > 19 && age< 100) ) {
+	  alert('현재 나이를 숫자 두자리로 입력해주세요.')
+      return false;
+	}
+    $.ajax({
+      url: "/users/editvalidate",
+      method: "POST",
+      data: {"id": $('input[name=id]').val(),
+      		 "age": $('input[name=age]').val(),
+      		 "current_password": $('input[name=current_password]').val(),
+      		 "password": $('input[name=password]').val(),
+      		 "password_confirmation": $('input[name=password_confirmation]').val(),
+      		 "authenticity_token" : $("input[name=authenticity_token]").val()}
+    });
+  });
+  
+</script>

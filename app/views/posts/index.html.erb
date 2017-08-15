@@ -3,8 +3,10 @@
   <div class="dk_between"></div>
   <div class="dk_search">
     <div class="dk_searchbox">
-      <input type="text" class="dk_searchboxinput" placeholder="검색어를 입력하세요." name="textbox"/>
-      <%= image_tag("dk_search.png", class: "dk_searchicon") %>
+      <%= form_tag(posts_path, method: 'get') do %>
+        <input type="text" name="search" class="dk_searchboxinput" placeholder="검색어를 입력하세요."/>
+        <%= image_submit_tag("dk_search.png", class: "dk_searchicon") %>
+      <% end %>
     </div>
   </div>
   <% @posts.each do |post| %>
@@ -12,20 +14,28 @@
       <article class="dk_postbox">
         <div class="dk_top">
           <h3 class="dk_posttitle"><%= post.title %></h3>
-          <div class="dk_hot">Hot</div>
+          <% if post.hits >= 100 %>
+            <div class="dk_hot">Hot</div>
+          <% end %>
           <div class="dk_postdate"><%= post.created_at.to_s.split("-")[0] + "." + post.created_at.to_s.split("-")[1] + "." + post.created_at.to_s.split(" ")[1].split(":").first%></div>
         </div>
         <div class="dk_content"><%= post.content %></div>
         <div class="dk_bottom">
-          <div class="dk_jum"></div>
+          <% if current_user.gender == "m" %>
+            <div class="dk_point_m"></div>
+          <% else %>
+            <div class="dk_point_w"></div>
+          <% end %>
           <div class="dk_nickname"><%= post.user.nickname %></div>
           <div class="dk_commentnum"><%= post.comments.length %></div>
           <%= image_tag("dk_comment.png", class: "dk_comment") %>
-          <div class="dk_likenum"><%= post.likes.length %></div>
+          <div class="dk_likenum" id="dk_numberup<%= post.id %>"><%= post.likes.length %></div>
           <% if current_user.is_like?(post) %>
-              <%= link_to image_tag("dk_likeon.png", alt: "좋아요 취소", class: "dk_likeon"), post_like_path(post), method: "post" %>
+              <a><%= image_tag("dk_likeon.png", class: "dk_likeon") %><input class="dk_id" type="hidden" value="<%= post.id %>"></input>
+              <%= image_tag("dk_likeoff.png", class: "dk_likeoff dk_likehidden") %><input class="dk_id" type="hidden" value="<%= post.id %>"></input></a>
           <% else %>
-              <%= link_to image_tag("dk_likeoff.png", alt: "좋아요", class: "dk_likeon"), post_like_path(post), method: "post" %>
+              <a><%= image_tag("dk_likeon.png", class: "dk_likeon dk_likehidden") %><input class="dk_id" type="hidden" value="<%= post.id %>"></input>
+              <%= image_tag("dk_likeoff.png", class: "dk_likeoff") %><input class="dk_id" type="hidden" value="<%= post.id %>"></input></a>
           <% end %>
         </div>
       </article>
@@ -50,4 +60,29 @@
 $( ".dk_next" ).click(function() {
   $('.next_page')[0].click();
 });
+
+
+$('.dk_bottom').on('click','img',function(){
+  var imgClass = $(this).attr('class');
+  var here = $(this)
+  var val = $(this).next("input").val();
+  $.ajax({
+    url: "/posts/"+ val +"/like",
+    method: "POST",
+    data: {"id": val, "authenticity_token" : $("input[name=authenticity_token]").val()}
+  }).done(function(){
+        console.log(val);
+        $(here).toggleClass("dk_likehidden");
+        $(here).siblings().toggleClass("dk_likehidden");
+        var idnum = "#dk_numberup"+ val
+        var num = parseInt($(idnum).html())
+        if (imgClass == "dk_likeon") {
+          $(idnum).html(num-1)
+        } else { 
+          $(idnum).html(num+1)
+        };
+      });
+});
+
+  
 </script>

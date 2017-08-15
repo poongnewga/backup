@@ -437,6 +437,9 @@
         }).done(function(a){
           document.getElementById('yr_result1_edit').innerHTML = result;
           $('#yr_result1_edit').show();
+          if(result == "인증되었습니다."){
+            document.getElementById('add_nick1').readOnly = true;
+          }
         });
         return false;
   });
@@ -449,6 +452,9 @@
         }).done(function(a){
           document.getElementById('yr_result1_edit').innerHTML = result;
           $('#yr_result1_edit').show();
+           if(result == "인증되었습니다."){
+            document.getElementById('add_nick1').readOnly = true;
+          }
         });
         return false;
   });
@@ -461,6 +467,9 @@
         }).done(function(a){
           document.getElementById('yr_result2_edit').innerHTML = result;
           $('#yr_result2_edit').show();
+           if(result == "인증되었습니다."){
+            document.getElementById('add_nick2').readOnly = true;
+          }
         });
         return false;
   });
@@ -472,6 +481,9 @@
         }).done(function(a){
           document.getElementById('yr_result2_edit').innerHTML = result;
           $('#yr_result2_edit').show();
+           if(result == "인증되었습니다."){
+            document.getElementById('add_nick2').readOnly = true;
+          }
         });
         return false;
   });
@@ -484,6 +496,9 @@
         }).done(function(a){
           document.getElementById('yr_result3_edit').innerHTML = result;
           $('#yr_result3_edit').show();
+           if(result == "인증되었습니다."){
+            document.getElementById('add_nick3').readOnly = true;
+          }
         });
     
     return false;
@@ -497,6 +512,9 @@
         }).done(function(a){
           document.getElementById('yr_result3_edit').innerHTML = result;
           $('#yr_result3_edit').show();
+           if(result == "인증되었습니다."){
+            document.getElementById('add_nick3').readOnly = true;
+          }
         });
         return false;
   });

@@ -14,6 +14,13 @@
 			<div class = "ky_logo">
 				<%= image_tag("dk_navlogo.png", class: "ky_logo") %>
 			</div>
+			<div class="ky_error-comment">
+				<% flash.each do |message_type, message| %>
+				  <div class="alert alert-<%= message_type %> ky_alert">
+				    <%= message %>
+				  </div>
+				<% end %>
+			</div>
 
 			<%= form_tag sessions_path do %>
 			  <input class="ky_nickname" type="string" name="nickname" placeholder="닉네임">
@@ -32,8 +39,6 @@
 				<%= link_to "비밀번호 찾기", find_password_index_path, :class => "ky_find-font"%>
 				
 			</div>
-
-
 		</div>
 	</div>
 </div>

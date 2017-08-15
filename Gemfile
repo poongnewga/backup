@@ -9,6 +9,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'time_diff', '~> 0.3.0'
 gem "geocoder"
 gem "fog-aws"
+gem "mini_magick"
 gem 'carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'

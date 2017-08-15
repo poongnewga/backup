@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
-  #protect_from_forgery with: :exception
-  before_action :check_admin, :authenticate_user
+  protect_from_forgery with: :exception
+  before_action :authenticate_user, :check_admin 
   def index
     @user = User.where(email_confirmed: false)
   end

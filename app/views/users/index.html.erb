@@ -9,9 +9,15 @@
 
 <div class="dk_mytab">
 	<div class="dk_tab">
+	<% if params[:tab] == "chat" %>
+	  <button class="dk_tablinks" onclick="openCity(event, 'dk_wait')">매칭 대기 중</button>
+	  <button class="dk_tablinks" id="dk_defaultOpen" onclick="openCity(event, 'dk_success')">예정된 미팅</button>
+	  <button class="dk_tablinks" onclick="openCity(event, 'dk_past')">지난 미팅</button>
+	<% else %>
 	  <button class="dk_tablinks" id="dk_defaultOpen" onclick="openCity(event, 'dk_wait')">매칭 대기 중</button>
 	  <button class="dk_tablinks" onclick="openCity(event, 'dk_success')">예정된 미팅</button>
 	  <button class="dk_tablinks" onclick="openCity(event, 'dk_past')">지난 미팅</button>
+	<% end %>
 	</div>
 </div>
 <div class="dk_tabcontent">

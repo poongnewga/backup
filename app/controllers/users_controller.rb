@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
   before_action :authenticate_user, except: [:create, :new, :validate]
   
   def index
@@ -47,6 +47,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    # @user = User.find(params[:id])
+    
+    # if !(params[:current_password] == current_user.password)
+    #   if !params[:password].nil?
+    #     @user.update(age: params[:age])
+    #   elsif (params[:password] != params[:password_confirmation])
+    #   else (params[:password] == params[:password_confirmation])
+    #     @user.update(age: params[:age], password: params[:password], password_confirmation: params[:password_confirmation])
+    #   end
+    # end
+    
+    redirect_to users_path
   end
   
   def confirm_email
@@ -75,5 +87,25 @@ class UsersController < ApplicationController
       puts '실패'
       @result = "fail"
     end
+  end
+  
+  def editvalidate
+    @user = User.find(params[:id])
+    
+      if @user.authenticate (params[:current_password])
+        if params[:password] == ""
+          @user.update(age: params[:age])
+          @result = "updated"
+        else
+          if (params[:password] != params[:password_confirmation])
+            @result = "pw_nomatch"
+          else
+            @user.update(age: params[:age], password: params[:password], password_confirmation: params[:password_confirmation])
+            @result = "updated"
+          end
+        end
+      else
+        @result = "pw_nomatch"
+      end
   end
 end

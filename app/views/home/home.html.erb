@@ -1,4 +1,11 @@
+
 <div class="hj-wrapper">
+  <div class="ky_explain">
+    <div class="ky_explain-title">런치팅이란?</div>
+    <div class="ky_explain-content">바쁜 직장인들을 위한 점심 미팅 서비스입니다. 1:1 소개팅부터 2:2, 3:3, 
+    4:4 미팅까지 모두 가능합니다. 따로 시간내기도 어렵고, 1:1 소개팅을 부담스러우셨죠? 이제 직장 동료들과 함께 매일 돌아오는 
+    점심 시간을 이용해 부담없이 만나보세요!</div>
+  </div>
   <div class="ky_main-container">
   
     <div class="ky_unclear-container"></div>
@@ -19,7 +26,7 @@
       </div>
     </div>
     <div class="ky_step4">
-      <div class="ky_step4-title"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Step4</div>
+      <div class="ky_step4-title">Step4</div>
       <div class="ky_step4-content">
         점심 시간을 이용해 편하고 즐거운 런치팅을 하면 끝!
       </div>
@@ -34,13 +41,17 @@
     <div class='ky_circle3'></div>
     <div class='ky_circle4'></div>
     <div class='ky_circle5'></div>
+    <div class="ky_step1-picture"></div>
+    <div class="ky_step2-picture"></div>
+    <div class="ky_step3-picture"></div>
+    <div class="ky_step4-picture"></div>
 </div>
 </div>
 
 
 
 
-   <script>
+<script>
     $(".dk_nav2").hide();
       $(window).scroll(function() {
         if ($(this).scrollTop() > 0) {
@@ -53,67 +64,75 @@
         $( ".dk_nav2" ).fadeOut();
       }
     });
-    </script>
-    <script>
-        $(".ky_step1")
-.mouseover(function() {
-  $(".ky_step1").css("zIndex", "4");
-  $(".ky_unclear-container").css('display', 'block');
-  $(".ky_circle1").css('display', 'block');
-})
-.mouseout(function() {
-  $(".ky_unclear-container").css('display', 'none');
-  $(".ky_step1").css("zIndex", "2");
-  $(".ky_circle1").css('display', 'none');
-});
+</script>
+<script>
+  $(".ky_step1")
+    .mouseover(function() {
+      $(".ky_step1").css("zIndex", "4");
+      $(".ky_unclear-container").css('display', 'block');
+      $(".ky_circle1").css('display', 'block');
+      $(".ky_step1-picture").css("zIndex", "4");
+    })
+    .mouseout(function() {
+      $(".ky_unclear-container").css('display', 'none');
+      $(".ky_step1").css("zIndex", "2");
+      $(".ky_circle1").css('display', 'none');
+      $(".ky_step1-picture").css("zIndex", "2");
+    });
+    
+  $(".ky_step2")
+    .mouseover(function() {
+      $(".ky_step2").css("zIndex", "4");
+      $(".ky_unclear-container").css('display', 'block');
+      $(".ky_circle2").css('display', 'block');
+      $(".ky_step2-picture").css("zIndex", "4");
+    })
+    .mouseout(function() {
+      $(".ky_step2").css("zIndex", "2");
+      $(".ky_unclear-container").css('display', 'none');
+      $(".ky_circle2").css('display', 'none');
+      $(".ky_step2-picture").css("zIndex", "2");
+    });
 
-$(".ky_step2")
-.mouseover(function() {
-  $(".ky_step2").css("zIndex", "4");
-  $(".ky_unclear-container").css('display', 'block');
-  $(".ky_circle2").css('display', 'block');
-})
-.mouseout(function() {
-  $(".ky_step2").css("zIndex", "2");
-  $(".ky_unclear-container").css('display', 'none');
-  $(".ky_circle2").css('display', 'none');
+  $(".ky_step3")
+    .mouseover(function() {
+      $(".ky_step3").css("zIndex", "4");
+      $(".ky_unclear-container").css('display', 'block');
+      $(".ky_circle3").css('display', 'block');
+      $(".ky_step3-picture").css("zIndex", "4");
+    })
+    .mouseout(function() {
+      $(".ky_step3").css("zIndex", "2");
+      $(".ky_unclear-container").css('display', 'none');
+      $(".ky_circle3").css('display', 'none');
+      $(".ky_step3-picture").css("zIndex", "2");
+    });
 
-});
+  $(".ky_step4")
+    .mouseover(function() {
+      $(".ky_step4").css("zIndex", "4");
+      $(".ky_unclear-container").css('display', 'block');
+      $(".ky_circle4").css('display', 'block');
+      $(".ky_step4-picture").css("zIndex", "4");
+    })
+    .mouseout(function() {
+      $(".ky_step4").css("zIndex", "2");
+      $(".ky_unclear-container").css('display', 'none');
+      $(".ky_circle4").css('display', 'none');
+      $(".ky_step4-picture").css("zIndex", "2");
+    });
+    
+  $(".ky_step5")
+    .mouseover(function() {
+      $(".ky_step5").css("zIndex", "4");
+      $(".ky_unclear-container").css('display', 'block')
+      $(".ky_circle5").css('display', 'block');;
+    })
+    .mouseout(function() {
+      $(".ky_step5").css("zIndex", "2");
+      $(".ky_unclear-container").css('display', 'none');
+      $(".ky_circle5").css('display', 'none');
+    });
+    
 
-$(".ky_step3")
-.mouseover(function() {
-  $(".ky_step3").css("zIndex", "4");
-  $(".ky_unclear-container").css('display', 'block');
-  $(".ky_circle3").css('display', 'block');
-})
-.mouseout(function() {
-  $(".ky_step3").css("zIndex", "2");
-  $(".ky_unclear-container").css('display', 'none');
-  $(".ky_circle3").css('display', 'none');
-});
-
-$(".ky_step4")
-.mouseover(function() {
-  $(".ky_step4").css("zIndex", "4");
-  $(".ky_unclear-container").css('display', 'block');
-  $(".ky_circle4").css('display', 'block');
-})
-.mouseout(function() {
-  $(".ky_step4").css("zIndex", "2");
-  $(".ky_unclear-container").css('display', 'none');
-  $(".ky_circle4").css('display', 'none');
-});
-
-$(".ky_step5")
-.mouseover(function() {
-  $(".ky_step5").css("zIndex", "4");
-  $(".ky_unclear-container").css('display', 'block')
-  $(".ky_circle5").css('display', 'block');;
-})
-.mouseout(function() {
-  $(".ky_step5").css("zIndex", "2");
-  $(".ky_unclear-container").css('display', 'none');
-  $(".ky_circle5").css('display', 'none');
-});
-
-    </script>
+</script>

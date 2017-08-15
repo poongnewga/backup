@@ -109,7 +109,8 @@
   	color: #4a4a4a;
   }
   .dk_likecommentbox {
-    margin-top: 25px;
+    margin-top: 30px;
+    margin-bottom: 60px;
     .dk_likeon {
       margin-top: 2px;
       float: right;
@@ -117,6 +118,25 @@
     	height: 15px;
     	object-fit: contain;
       margin-right: 4px;
+    }
+    .dk_likeoff {
+      margin-top: 2px;
+      float: right;
+      width: 15px;
+    	height: 15px;
+    	object-fit: contain;
+      margin-right: 4px;
+    }
+    .dk_likehidden {
+      display: none;
+    }
+    .dk_likeon:hover {
+      cursor: pointer;
+      cursor: hand;
+    }
+    .dk_likeoff:hover {
+      cursor: pointer;
+      cursor: hand;
     }
     .dk_likenum {
       float: right;
@@ -292,6 +312,7 @@
     }
   }
   .dk_button {
+    margin-right: 0px;
     border: 0;
     cursor: pointer;
     cursor: hand;
