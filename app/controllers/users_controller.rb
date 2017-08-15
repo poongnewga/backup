@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   end
   
   def confirm_email
-    user = User.find_by_confirm_token(params[:id])
+    user = User.find_by(confirm_token: params[:id])
     if user
       user.email_activate
       redirect_to root_path

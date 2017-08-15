@@ -61,6 +61,8 @@ GEM
     excon (0.57.1)
     execjs (2.7.0)
     ffi (1.9.18)
+    figaro (1.1.1)
+      thor (~> 0.14)
     fog-aws (1.4.0)
       fog-core (~> 1.38)
       fog-json (~> 1.0)
@@ -230,6 +232,7 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.2)
+  figaro
   fog-aws
   geocoder
   jbuilder (~> 2.5)
@@ -253,4 +256,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.0)
 
 BUNDLED WITH
-   1.14.6
+   1.15.3

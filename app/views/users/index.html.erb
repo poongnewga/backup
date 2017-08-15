@@ -56,8 +56,8 @@
 							</div>
 							<div class="dk_meetingchildloc2">
 								<% loc = JSON.load(open("https://maps.googleapis.com/maps/api/geocode/json?latlng=#{JSON.parse(g.location)["latitude"].to_s},#{JSON.parse(g.location)["longitude"].to_s}&language=ko"))["results"][1]["formatted_address"].split(" ") %>
-								<% loc.shift(2) %>
-								<%= loc[0,3].join(" ") %>
+								<%  loc.shift(2) %>
+								<%=  loc[0,3].join(" ") %>
 							</div>
 							<div class="dk_meetingchild"><%= g.people.to_s + "명"%></div>
 							<div class="dk_meetingchildUD">

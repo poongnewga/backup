@@ -155,6 +155,7 @@ class AppController < ApplicationController
     
     @user = User.new
     @user.nickname = params[:nickname]
+    @user.age = params[:age]
     @user.password = params[:password]
     if params[:gender] == "male"
       @user.gender = "m"

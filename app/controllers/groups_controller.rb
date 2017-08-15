@@ -23,6 +23,9 @@ class GroupsController < ApplicationController
       if @user_location = !current_user.location.nil? 
         @latitude = JSON.parse(current_user.location)["latitude"].to_f
         @longitude = JSON.parse(current_user.location)["longitude"].to_f
+      else
+        @latitude = 37.497942
+        @longitude = 127.027621
       end
       
   
