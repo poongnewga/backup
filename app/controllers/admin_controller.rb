@@ -38,6 +38,7 @@ class AdminController < ApplicationController
       puts "엠그룹"
       puts @mgroups
       @mgroups.where(people: f.people.to_i).each do |m|
+        @timediffs  = {}
         puts "각엠"
         puts m
         puts m.id
@@ -53,16 +54,16 @@ class AdminController < ApplicationController
         end
         puts "데이즈"
         puts @days
-        if !@days.nil?
+        if !@days.empty?
           puts Geocoder::Calculations.distance_between([JSON.parse(m.location)["latitude"].to_f,JSON.parse(m.location)["longitude"].to_f], [JSON.parse(f.location)["latitude"].to_f,JSON.parse(f.location)["longitude"].to_f])
-          if 15 >= Geocoder::Calculations.distance_between([JSON.parse(m.location)["latitude"].to_f,JSON.parse(m.location)["longitude"].to_f], [JSON.parse(f.location)["latitude"].to_f,JSON.parse(f.location)["longitude"].to_f])
+          if 1 >= Geocoder::Calculations.distance_between([JSON.parse(m.location)["latitude"].to_f,JSON.parse(m.location)["longitude"].to_f], [JSON.parse(f.location)["latitude"].to_f,JSON.parse(f.location)["longitude"].to_f])
             puts "비교성공"
             larges = [(JSON.parse(m.lunchtime)["start"].split(/[\s: ]/)[0]+JSON.parse(m.lunchtime)["start"].split(/[\s: ]/)[1]).to_i, (JSON.parse(f.lunchtime)["start"].split(/[\s: ]/)[0] + JSON.parse(f.lunchtime)["start"].split(/[\s: ]/)[1]).to_i].max
             smallf = [(JSON.parse(m.lunchtime)["finish"].split(/[\s: ]/)[0]+JSON.parse(m.lunchtime)["finish"].split(/[\s: ]/)[1]).to_i, (JSON.parse(f.lunchtime)["finish"].split(/[\s: ]/)[0] + JSON.parse(f.lunchtime)["finish"].split(/[\s: ]/)[1]).to_i].min
             if larges < smallf
               timediff = Time.diff(Time.parse("#{larges.to_s.split("")[0]}+#{larges.to_s.split("")[1]}"+":"+"#{larges.to_s.split("")[3]}+#{larges.to_s.split("")[4]}"), Time.parse("#{smallf.to_s.split("")[0]}+#{smallf.to_s.split("")[1]}"+":"+"#{smallf.to_s.split("")[3]}+#{smallf.to_s.split("")[4]}"), '%h %m ')[:diff].split(" ")
-              diff = timediff[0] + timediff[1]
-              if diff.to_i > 30
+              diff = (timediff[0].to_i*60) + (timediff[1].to_i)
+              if diff.to_i >= 30
                 @candy << m
                 @can[m.id] = diff
               end

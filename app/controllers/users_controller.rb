@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user, except: [:create, :new, :validate]
+  before_action :authenticate_user, except: [:create, :new, :validate, :confirm_email]
   
   def index
     @meetings = current_user.meetings
