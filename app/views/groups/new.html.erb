@@ -114,13 +114,16 @@
   <p class="yr_div9_label"> 이 위치를 기본 점심 시간으로 저장합니다.</p>
   </label>
 </div>  
-
+<div class="ky_modify-container">
+  <div class="ky_modify">지금은 테스트 기간입니다. 점심시간이 아니더라도 원하는 시간을 선택해 주세요.</div>
+  <div class="ky_modify">장소는 미팅하고 싶은 장소를 선택해 주세요.</div>
+</div>
 <input type="hidden" value="<% @start %>"> 
   <script>
   
   if(JSON.parse(document.getElementById('userlunchtime').innerHTML)) {
-	var lunchtimebeg = parseFloat(document.getElementById('lunchtime_start').value);
-	var lunchtimeend = parseFloat(document.getElementById('lunchtime_finish').value);
+   var lunchtimebeg = parseFloat(document.getElementById('lunchtime_start').value);
+   var lunchtimeend = parseFloat(document.getElementById('lunchtime_finish').value);
 } else {
   var lunchtimebeg = "12:00 pm"
   var lunchtimeend = "1:00 pm"
@@ -129,9 +132,9 @@
   $(document).ready(function(){
         $('input.timepicker1').timepicker({
       timeFormat: 'HH:mm p',
-      interval: 15,
+      interval: 30,
       minTime: '10:30 am',
-      maxTime: '3:00pm',
+      maxTime: '10:00pm',
       defaultTime: lunchtimebeg,
       startTime: '10:30 pm',
       dynamic: false,
@@ -141,9 +144,9 @@
     
         $('input.timepicker2').timepicker({
       timeFormat: 'HH:mm p',
-      interval: 15,
+      interval: 30,
       minTime: '10:30 am',
-      maxTime: '3:00pm',
+      maxTime: '10:00pm',
       defaultTime: lunchtimeend,
       startTime: '10:30 pm',
       dynamic: false,
@@ -366,9 +369,6 @@
       data: {"user": $('#add_nick1').val(), "authenticity_token" : $("input[name=authenticity_token]").val()}
     }).done(function(a){
       document.getElementById('yr_result1').innerHTML = result;
-      if(result == "인증되었습니다."){
-       document.getElementById('add_nick1').readOnly = true;
-      }
     });
     
     return false;
@@ -381,9 +381,6 @@
       data: {"user": $('#add_nick2').val(), "authenticity_token" : $("input[name=authenticity_token]").val()}
     }).done(function(a){
       document.getElementById('yr_result2').innerHTML = result;
-      if(result == "인증되었습니다."){
-       document.getElementById('add_nick2').readOnly = true;
-      }
     });
     
     return false;
@@ -396,9 +393,6 @@
       data: {"user": $('#add_nick3').val(), "authenticity_token" : $("input[name=authenticity_token]").val()}
     }).done(function(a){
       document.getElementById('yr_result3').innerHTML = result;
-      if(result == "인증되었습니다."){
-       document.getElementById('add_nick3').readOnly = true;
-      }
     });
     
     return false;

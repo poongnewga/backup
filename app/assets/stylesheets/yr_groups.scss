@@ -146,9 +146,9 @@
 }
 
 .yr_btn1:hover, .yr_btn2:hover, .yr_btn3:hover, #yr_edit_btn1:hover, #yr_auth_btn1:hover, #yr_newauth1:hover, #yr_edit_btn2:hover, #yr_auth_btn2:hover, #yr_newauth2:hover, #yr_edit_btn3:hover, #yr_auth_btn3:hover, #yr_newauth3:hover {
-	    background-color: #fc5a5a;
-			color: #fff;
-	}
+       background-color: #fc5a5a;
+         color: #fff;
+   }
 
 #yr_result1, #yr_result2, #yr_result3, #yr_result1_edit, #yr_result2_edit, #yr_result3_edit {
   font-size: 12px;
@@ -296,6 +296,14 @@
 
 #lunchtime_save {
     background-color: white;
+}
+
+.ky_modify-container {
+  padding-left: 120px;
+  .ky_modify {
+    font-size: 10px;
+    text-align: center;
+  }
 }
 
 .yr_div9_checkbox {
