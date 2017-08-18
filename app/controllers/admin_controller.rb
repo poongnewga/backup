@@ -57,7 +57,7 @@ class AdminController < ApplicationController
         puts @days
         if !@days.empty?
           puts Geocoder::Calculations.distance_between([JSON.parse(m.location)["latitude"].to_f,JSON.parse(m.location)["longitude"].to_f], [JSON.parse(f.location)["latitude"].to_f,JSON.parse(f.location)["longitude"].to_f])
-          if 1 >= Geocoder::Calculations.distance_between([JSON.parse(m.location)["latitude"].to_f,JSON.parse(m.location)["longitude"].to_f], [JSON.parse(f.location)["latitude"].to_f,JSON.parse(f.location)["longitude"].to_f])
+          if 30 >= Geocoder::Calculations.distance_between([JSON.parse(m.location)["latitude"].to_f,JSON.parse(m.location)["longitude"].to_f], [JSON.parse(f.location)["latitude"].to_f,JSON.parse(f.location)["longitude"].to_f])
             puts "비교성공"
             larges = [(JSON.parse(m.lunchtime)["start"].split(/[\s: ]/)[0]+JSON.parse(m.lunchtime)["start"].split(/[\s: ]/)[1]).to_i, (JSON.parse(f.lunchtime)["start"].split(/[\s: ]/)[0] + JSON.parse(f.lunchtime)["start"].split(/[\s: ]/)[1]).to_i].max
             smallf = [(JSON.parse(m.lunchtime)["finish"].split(/[\s: ]/)[0]+JSON.parse(m.lunchtime)["finish"].split(/[\s: ]/)[1]).to_i, (JSON.parse(f.lunchtime)["finish"].split(/[\s: ]/)[0] + JSON.parse(f.lunchtime)["finish"].split(/[\s: ]/)[1]).to_i].min
