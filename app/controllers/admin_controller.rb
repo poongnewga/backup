@@ -31,7 +31,8 @@ class AdminController < ApplicationController
       @final_candy = []
       @can = {}
       @final_days = []
-      @nogroups = @groups.where(matched: false)
+      @nogroups_pre = @groups.where(matched: false)
+      @nogroups = @nogroups_pre.where.not(company: f.company)
       puts "노그룹"
       puts @nogroups
       @mgroups = @nogroups.where(gender: "m")
